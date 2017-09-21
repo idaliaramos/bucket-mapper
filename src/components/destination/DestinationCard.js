@@ -43,8 +43,7 @@ export default class DestinationCard extends React.Component {
 
   render() {
     const destinationCard = this.props.destinationCard;
-    // console.log(destinationCard, 'DESTINATIONCARD');
-    // console.log(this.state);
+
     return (
       <div>
         <Paper style={style} zDepth={1} id={destinationCard.id}>
