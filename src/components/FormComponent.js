@@ -28,29 +28,29 @@ const style = {
 
 export default class FormComponent extends Component {
   static defaultProps = {
-    form: {},
-    onSave: () => {}
+    onSaveTripData: () => {}
   };
 
   constructor(props) {
     super(props);
     const { form } = this.props;
     this.state = {
-      url: form.url,
-      title: form.title,
-      body: form.body
+      // url: form.url,
+      // title: form.title,
+      // body: form.body
     };
   }
   _handleClickOnSave = event => {
     event.preventDefault();
-    const { onSave } = this.props;
-    let title = document.getElementById('ActivityName').value;
-    let description = document.getElementById('Description').value;
+    const { onSaveTripData } = this.props;
+    let location = document.getElementById('ActivityName').value;
+    let body = document.getElementById('Description').value;
     let url = document.getElementById('Url').value;
-    let input = { title: title, description: description, url: url };
-    console.log(title, description, url);
-    console.log('these are the props', this.props);
-    onSave({ title, description, url });
+    let tripData = { body: body, location: location, image: url };
+    // console.log(title, description, url);
+    // console.log(typeof tripData);
+    // console.log('these are the props', this.props);
+    onSaveTripData(tripData);
   };
 
   render() {

@@ -4,14 +4,13 @@ import createDestinationThunk from '../thunks/createDestinationThunk';
 // import DestinationFormComponent from '../components/destination/DestinationFormComponent';
 import DestinationsPage from '../../components/destination/DestinationsPage';
 import getDestinationCardsThunk from '../thunks/getDestinationCardsThunk';
-//
+import updateDestinationCardThunk from '../thunks/updateDestinationCardThunk';
+import deleteDestinationCardThunk from '../thunks/deleteDestinationCardThunk';
+
 //impor thunks
 // import createDestinationThunk from '../thunks/createDestinationThunk';
 
 function mapStateToProps(state, ownProps) {
-  // console.log(state.destinationCards, 'this REAL');
-  // console.log(ownProps, 'this is oprops');
-  // console.log(state.destinations, ' in 00000 destinations');
   return {
     destinationCards: state.destinationCards
   };
@@ -20,8 +19,13 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch, ownProps) {
   return {
     onMount: () => dispatch(getDestinationCardsThunk()),
-    //transfer function that dispatch to the root reducer
-    onSaveDestination: name => dispatch(createDestinationThunk(name))
+    onSaveDestination: destination =>
+      dispatch(createDestinationThunk(destination)),
+    onUpdateDestination: (id, changes) => {
+      dispatch(updateDestinationCardThunk(id, changes));
+      // console.log('>>>', id, changes);
+    },
+    onDeleteDestination: id => dispatch(deleteDestinationCardThunk(id))
   };
 }
 

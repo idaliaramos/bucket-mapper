@@ -1,7 +1,6 @@
 export default function recordToCard(record) {
   return {
-    card: record.fields.cards,
-    id: record.fields.nid,
+    id: record,
     name: record.fields.name
   };
 }

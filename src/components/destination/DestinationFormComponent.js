@@ -36,8 +36,7 @@ export default class DestinationFormComponent extends Component {
     event.preventDefault();
     // const { onSaveDestination } = this.props;
     let name = document.getElementById('destinationName').value;
-    name = { name };
-    this.props.onSaveDestination(name);
+    this.props.onSaveDestination({ name });
   };
   render() {
     // console.log('this is in form componenet', destinationCar);

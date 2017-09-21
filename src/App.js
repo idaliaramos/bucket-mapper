@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DestinationsPageContainer from './redux/containers/DestinationPageContainer';
+import AdventurePageContainer from './redux/containers/AdventurePageContainer';
 
 import setupStore from './redux/setupStore';
 
@@ -14,7 +15,7 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <MuiThemeProvider>
-          <DestinationsPageContainer />
+          <AdventurePageContainer />
         </MuiThemeProvider>
       </Provider>
     );

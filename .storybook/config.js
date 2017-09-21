@@ -7,7 +7,7 @@ function loadStories() {
   require('../src/components/destination/DestinationCard.story.js');
   require('../src/components/destination/DestinationsPage.story.js');
   require('../src/components/FormComponent.story.js');
-  require('../src/components/layout/AdventureBoardLayout.story.js');
+  require('../src/components/layout/AdventurePageLayout.story.js');
   // require('../src/components/travelBoard/TravelBoardComponent.story.js');
   require('../src/components/nav/NavigationComponent.story.js');
 }

@@ -10,12 +10,6 @@ import {
 } from 'material-ui/Card';
 
 import FlatButton from 'material-ui/FlatButton';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import IconButton from 'material-ui/IconButton';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import InputComponent from '../InputComponent';
-import TextField from 'material-ui/TextField';
 
 //
 const style = {
@@ -25,26 +19,39 @@ const style = {
   display: 'block'
 };
 
-export default function AdventureCard({ input }) {
-  function handleClickSwitch() {
-    event.preventDefault();
-    console.log('handleClickswitch');
-    onSwitch();
+export default class AdventureCard extends React.Component {
+  static defaultProps = {
+    onEditAdventureCard: () => {}
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
-  return (
-    <Card style={style}>
-      <CardMedia overlay={<CardTitle title="Holipali" subtitle="" />}>
-        <img
-          src="http://tropixtraveler.com/web/wp-content/uploads/2014/12/189-Puerto-Rico-San-Sebastian-Gozalandia-Waterfall-1.jpg"
-          alt=""
-        />
-      </CardMedia>
-      {/* <CardTitle title="" subtitle="" /> */}
-      <CardText>"you can put your description here"</CardText>
-      <CardActions>
-        <FlatButton onClick={handleClickSwitch} label="Edit" />
-      </CardActions>
-    </Card>
-  );
+
+  render() {
+    console.log(this.props, 'PROPS IN ADVENTURE CARD');
+    const adventureCard = this.props.adventureCard;
+    return (
+      <Card style={style}>
+        <CardMedia
+          overlay={<CardTitle title={adventureCard.location} subtitle="" />}>
+          <img src={adventureCard.image} alt="" />
+        </CardMedia>
+        {/* <CardTitle title="" subtitle="" /> */}
+        <CardText>
+          {adventureCard.body}
+        </CardText>
+        <CardActions>
+          <FlatButton onClick={this._handleClickEdit} label="Edit" />
+        </CardActions>
+      </Card>
+    );
+  }
+
+  _handleClickEdit = event => {
+    event.preventDefault();
+    console.log('in the edit adv card');
+    this.props.onEditAdventureCard(this.adventureCard.id);
+  };
 }
-// export default InitialCard;

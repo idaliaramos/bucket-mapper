@@ -1,6 +1,9 @@
-// import recordToCard from './utils/recordToCard';
+import recordToDestinationCard from './utils/recordToDestinationCard';
 
-export default function createDestinationCard(name, { databaseId, token }) {
+export default function createDestinationCard(
+  destination,
+  { databaseId, token }
+) {
   return fetch(
     'https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinationBoard?',
     {
@@ -10,14 +13,27 @@ export default function createDestinationCard(name, { databaseId, token }) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        fields: name
+        fields: destination
       })
     }
   )
     .then(response => response.json())
-    .then(record => record.name);
+    .then(record => {
+      return {
+        id: record.id,
+        name: record.fields.name
+      };
+    });
   //or return the record, which is the nid and the name
 }
+
+/*
+{
+ id: 123213,
+ name: 'adfadfd'
+}
+*/
+
 //
 // fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinationBoard?', {
 //   method: 'POST',

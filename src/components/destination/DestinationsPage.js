@@ -21,10 +21,17 @@ export default function DestinationsPage(props) {
       /> */}
 
       <DestinationsPageLayout>
-        <DestinationFormComponent onSaveDestination={props.onSaveDestination} />
+        <DestinationFormComponent
+          onSaveDestination={props.onSaveDestination}
+          onDeleteDestination={props.onDeleteDestination}
+        />
         {props.destinationCards &&
           props.destinationCards.map(destinationCard =>
-            <DestinationCard destinationCard={destinationCard}>
+            <DestinationCard
+              destinationCard={destinationCard}
+              key={destinationCard.id}
+              onUpdateDestination={props.onUpdateDestination}
+              onDeleteDestination={props.onDeleteDestination}>
               {' '}
             </DestinationCard>
           )}

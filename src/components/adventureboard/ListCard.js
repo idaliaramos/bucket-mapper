@@ -23,10 +23,10 @@ const barStyle = {
   userSelect: 'none'
 };
 
-export default class DestinationCard extends React.Component {
+export default class ListCard extends React.Component {
   static defaultProps = {
-    onUpdateDestination: () => {},
-    onDeleteDestination: () => {}
+    onUpdateList: () => {},
+    onDeleteList: () => {}
     // goToTravelboard: () => {}
   };
 
@@ -35,19 +35,13 @@ export default class DestinationCard extends React.Component {
     this.state = {};
   }
 
-  // handlePaperClick = event => {
-  //   console.log('i clicked the paper');
-  //   console.log(event);
-  //   this.goToTravelboard(event.id);
-  // };
-
   render() {
-    const destinationCard = this.props.destinationCard;
-    // console.log(destinationCard, 'DESTINATIONCARD');
-    // console.log(this.state);
+    const listCard = this.props.listCard;
+    console.log(listCard, 'ListCard');
+    console.log(this.state);
     return (
       <div>
-        <Paper style={style} zDepth={1} id={destinationCard.id}>
+        <Paper style={style} zDepth={1} id="3">
           {this.state.editMode === true
             ? this._renderEditMode()
             : this._renderDisplayMode()}
@@ -57,7 +51,7 @@ export default class DestinationCard extends React.Component {
   }
 
   _renderEditMode() {
-    const destinationCard = this.props.destinationCard;
+    const listCard = this.props.listCard;
     return (
       <div>
         <div
@@ -67,11 +61,10 @@ export default class DestinationCard extends React.Component {
             fontSize: 20,
             verticalAlign: 'middle'
           }}>
-          <input
-            ref="nameInput"
-            type="text"
-            defaultValue={destinationCard.name}
-          />
+          <input ref="nameInput" type="text" defaultValue=
+            // {listCard.name}
+            "Board"
+           />
         </div>
         <div />
         <br />
@@ -83,16 +76,16 @@ export default class DestinationCard extends React.Component {
   _handleClickSaveButton = event => {
     // console.log(this.refs.nameInput);
     // console.log(this.refs.nameInput.value, '<<<<<<');
-    this.props.onUpdateDestination(this.props.destinationCard.id, {
-      name: this.refs.nameInput.value
-    });
+    // this.props.onUpdateDestination(this.props.listCard.id, {
+    //   name: this.refs.nameInput.value
+    // });
     this.setState({
       editMode: false
     });
   };
 
   _renderDisplayMode() {
-    const destinationCard = this.props.destinationCard;
+    const listCard = this.props.listCard;
     return (
       <div>
         <div
@@ -103,7 +96,8 @@ export default class DestinationCard extends React.Component {
             verticalAlign: 'middle'
           }}>
           <div>
-            {destinationCard.name}
+            {/* {listCard.name} */}
+            Beaches
           </div>
         </div>
         <div />
@@ -132,8 +126,8 @@ export default class DestinationCard extends React.Component {
   };
   handleClickDelete = event => {
     console.log('ia m in delete');
-    this.props.onDeleteDestination(this.props.destinationCard.id);
-    console.log(this.props.destinationCard, 'p');
-    console.log(this.props.destinationCard.id, 'dci');
+    this.props.onUpdateDestination(this.props.listCard.id);
+    console.log(this.props.listCard, 'p');
+    console.log(this.props.listCard.id, 'dci');
   };
 }
