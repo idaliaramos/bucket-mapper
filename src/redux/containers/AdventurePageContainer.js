@@ -32,6 +32,8 @@ function mapDispatchToProps(dispatch, ownProps) {
     },
     onShowAdventureCard: () => dispatch({ type: 'SHOW_ADVENTURE_CARD' }),
     onDeleteAdventureCard: id => dispatch(deleteAdventureCardThunk(id))
+    // onSearch: input =>
+    //   dispatch({ type: 'SHOW_SEARCH_RESULTS', input })
   };
 }
 

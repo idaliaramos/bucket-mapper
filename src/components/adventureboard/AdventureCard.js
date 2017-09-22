@@ -35,7 +35,7 @@ export default class AdventureCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFlipped: false
+      editMode: false
     };
     // this.handleClick = this.handleClick.bind(this);
   }
@@ -60,69 +60,33 @@ export default class AdventureCard extends React.Component {
       // </ReactCardFlip>
     );
   }
-
+  //example
+  updateTripData = (...args) => {
+    this.props.onUpdateTripData(...args);
+    this.state = {
+      editMode: false
+    };
+  };
+  onCancel = () => {
+    this.state = {
+      editMode: false
+    };
+  };
   _renderEditMode() {
-    const adventureCard = this.props.adventureCard;
     return (
       <FormComponent
         style={style}
-        onUpdateTripData={this.props.onUpdateTripData}
+        onUpdateTripData={this.updateTripData}
         update={true}
         adventureCard={this.props.adventureCard}
         onShow={this.props.onShow}
       />
-      // <div>
-      //   <div>
-      //     <CardMedia
-      //       overlay={
-      //         <CardTitle>
-      //           <input
-      //             ref="location"
-      //             type="text"
-      //             defaultValue={adventureCard.location}
-      //           />
-      //         </CardTitle>
-      //       }>
-      //       <img src={adventureCard.image} alt="" />
-      //     </CardMedia>
-      //   </div>
-      //   <div>
-      //     <CardText>
-      //       <input ref="name" type="text" defaultValue={adventureCard.body} />
-      //       {/* ref="title" type="text">
-      //       {adventureCard.body} */}
-      //     </CardText>
-      //   </div>
-      //   <div>
-      //     <CardActions>
-      //       <FlatButton onClick={this._handleClickonUpdate} label="Save" />
-      //     </CardActions>
-      //   </div>
-      // </div>
     );
   }
-  //possibly use this for second part
-  // _handleClickOnUpdate = event => {
-  //   event.preventDefault();
-  //
-  //   let $form = event.target;
-  //   console.log($form);
-  //   let location = $form.activityName.value;
-  //   let body = $form.description.value;
-  //   let url = $form.url.value;
-  //   let id = this.props.adventureCard.id;
-  //   const { onUpdateTripData } = this.props;
-  //   let tripData = { body: body, location: location, image: url };
-  //   onUpdateTripData(id, tripData);
-  // };
-
   _handleClickSaveButton = event => {
     console.log(this.refs.nameInput, 'HANDLC');
     // console.log(this.refs.nameInput.value, '<<<<<<');
     this.props.onUpdateAdventureCard(this.props.adventureCard.id, {
-      // image: this.refs.url.value,
-      // location: this.refs.location.value,
-      // body: this.refs.location.value
       image: this.props.adventureCard.url,
       location: this.refs.location.value,
       body: this.refs.location.value

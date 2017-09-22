@@ -37,11 +37,12 @@ export default class DestinationFormComponent extends Component {
     // const { onSaveDestination } = this.props;
     let name = document.getElementById('destinationName').value;
     this.props.onSaveDestination({ name });
+    document.form.reset();
   };
   render() {
     // console.log('this is in form componenet', destinationCar);
     return (
-      <form style={style}>
+      <form name="form" style={style}>
         <TextField
           id="destinationName"
           // value={this.state.title || ''}

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import { blue500 } from 'material-ui/styles/colors';
-import DropDownComponent from './DropDownComponent';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 
 import FlatButton from 'material-ui/FlatButton';
 
@@ -38,60 +39,66 @@ export default class FormComponent extends Component {
     super(props);
 
     this.state = {
-      editMode: true,
       location: '',
-      url: '',
-      body: ''
+      image: '',
+      body: '',
+      category: ''
     };
   }
   _handleClickOnSave = event => {
     event.preventDefault();
     const { onSaveTripData } = this.props;
-    let location = document.getElementById('location').value;
-    let body = document.getElementById('body').value;
-    let url = document.getElementById('url').value;
-    let tripData = { body: body, location: location, image: url };
-    let value = document.getElementbyId('category');
-    // console.log(typeof tripData);
-    // console.log('these are the props', this.props);
-    // let category = document.getElementById('category').value;
-    console.log(value, 'EVENT TARGET');
-    onSaveTripData(tripData);
+    // let location = document.getElementById('location').value;
+    // let body = document.getElementById('body').value;
+    // let url = document.getElementById('url').value;
+    // let tripData = { body: body, location: location, image: url };
+    // let value = document.getElementbyId('category');
+
     // this.props.onUpdateTripData(tripData, id);
-    console.log(
-      this.props.destinationCard,
-      '<<<<<<<<<<<props on form component'
-    );
+    let tripData = {
+      location: this.state.location,
+      body: this.state.body,
+      image: this.state.image,
+      category: this.state.category
+    };
+    console.log(tripData, 'tripdata');
+    onSaveTripData(tripData);
+    document.form.reset();
+  };
+
+  _handleLocationChange = (event, value) => {
+    this.setState({ location: value });
+  };
+  _handleUrlChange = (event, value) => {
+    this.setState({ image: value });
+  };
+  _handleBodyChange = (event, value) => {
+    this.setState({ body: value });
+  };
+  _handleCategoryChange = (event, index, value) => {
+    this.setState({ category: value });
   };
   _handleClickOnUpdate = event => {
     event.preventDefault();
-
     let $form = event.target;
-
     let location = $form.location.value;
     let body = $form.body.value;
-    let url = $form.url.value;
+    let image = $form.url.value;
     let id = this.props.adventureCard.id;
-
     const { onUpdateTripData } = this.props;
-    let tripData = { body: body, location: location, image: url };
+    let tripData = { body: body, location: location, image: image };
     onUpdateTripData(id, tripData);
-    this.setState({
-      editMode: false
-    });
   };
   _onHandleCancel = event => {
     event.preventDefault();
-    this.setState({
-      editMode: false
-    });
-    console.log(this.props.destinationCard, '<<<<<<<<<<<Cancel button');
+    this.onCancel();
   };
 
   render() {
     // console.log('this is props', this.props);
     return (
       <form
+        name="form"
         style={style}
         onSubmit={
           this.props.update === true
@@ -101,12 +108,14 @@ export default class FormComponent extends Component {
         {this.props.adventureCard
           ? <TextField
               id="location"
+              onChange={this._handleLocationChange}
               defaultValue={this.props.adventureCard.location}
               floatingLabelStyle={styles.floatingLabelStyle}
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
             />
           : <TextField
               id="location"
+              onChange={this._handleLocationChange}
               floatingLabelText="Enter Location"
               floatingLabelStyle={styles.floatingLabelStyle}
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
@@ -115,12 +124,14 @@ export default class FormComponent extends Component {
         {this.props.adventureCard
           ? <TextField
               id="url"
+              onChange={this._handleUrlChange}
               defaultValue={this.props.adventureCard.image}
               floatingLabelStyle={styles.floatingLabelStyle}
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
             />
           : <TextField
               id="url"
+              onChange={this._handleUrlChange}
               floatingLabelText="Enter url"
               floatingLabelStyle={styles.floatingLabelStyle}
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
@@ -129,6 +140,7 @@ export default class FormComponent extends Component {
         {this.props.adventureCard
           ? <TextField
               id="body"
+              onChange={this._handleBodyChange}
               // floatingLabelText= "body"
               defaultValue={this.props.adventureCard.body}
               floatingLabelStyle={styles.floatingLabelStyle}
@@ -139,11 +151,23 @@ export default class FormComponent extends Component {
             />
           : <TextField
               id="body"
+              onChange={this._handleBodyChange}
               floatingLabelText="Enter Description"
               floatingLabelStyle={styles.floatingLabelStyle}
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
             />}
-        <DropDownComponent value={this.props.value} />
+        <SelectField
+          id="category"
+          floatingLabelText="category"
+          value={this.state.category}
+          onChange={this._handleCategoryChange}>
+          <MenuItem value="food" primaryText="Food" />
+          <MenuItem value="outdoors" primaryText="Outdoors" />
+          <MenuItem value="exploration" primaryText="City Exploration" />
+          <MenuItem value="hikes" primaryText="Hikes" />
+          <MenuItem value="lodging" primaryText="Where to Stay" />
+        </SelectField>
+
         <div>
           {this.props.update === true
             ? <FlatButton

@@ -10,9 +10,8 @@ export default function AdventurePageLayout(props) {
 
   return (
     <div>
-      <NavigationComponent />
+      {props.children[0]}
       <div style={style}>
-        {props.children[0]}
         {props.children[1]}
         {props.children[2]}
         {props.children[3]}

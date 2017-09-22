@@ -50,6 +50,13 @@ export default function rootReducer(
           destinationCard => destinationCard.id !== action.id
         )
       };
+    case 'DELETE_ADVENTURE_CARD_COMPLETED':
+      return {
+        ...currentState,
+        adventureCards: currentState.adventureCards.filter(
+          adventureCard => adventureCard.id !== action.id
+        )
+      };
     case 'GET_ADVENTURE_CARDS_COMPLETED':
       return {
         ...currentState,
@@ -77,6 +84,7 @@ export default function rootReducer(
         ...currentState,
         onShow: true
       };
+
     default:
       return currentState;
   }
