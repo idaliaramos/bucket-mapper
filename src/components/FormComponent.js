@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import { blue500 } from 'material-ui/styles/colors';
+import DropDownComponent from './DropDownComponent';
 
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -47,6 +48,8 @@ export default class FormComponent extends Component {
     let tripData = { body: body, location: location, image: url };
     // console.log(typeof tripData);
     // console.log('these are the props', this.props);
+    // let category = document.getElementById('category').value;
+    console.log(event.target, 'EVENT TARGET');
     onSaveTripData(tripData);
     // this.props.onUpdateTripData(tripData, id);
   };
@@ -54,11 +57,12 @@ export default class FormComponent extends Component {
     event.preventDefault();
 
     let $form = event.target;
-    console.log(this.props, '<<<<<<<<<<<props on form component');
+
     let location = $form.activityName.value;
     let body = $form.description.value;
     let url = $form.url.value;
     let id = this.props.adventureCard.id;
+
     const { onUpdateTripData } = this.props;
     let tripData = { body: body, location: location, image: url };
     onUpdateTripData(id, tripData);
@@ -75,7 +79,7 @@ export default class FormComponent extends Component {
   };
 
   render() {
-    console.log('this is props', this.props);
+    // console.log('this is props', this.props);
     return (
       <form
         style={style}
@@ -125,13 +129,11 @@ export default class FormComponent extends Component {
             />
           : <TextField
               id="description"
-              floatingLabelText="Enter Location"
+              floatingLabelText="Enter Description"
               floatingLabelStyle={styles.floatingLabelStyle}
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
             />}
-
-        <br />
-
+        <DropDownComponent value={this.props.value} />
         <div>
           {this.props.update === true
             ? <RaisedButton
