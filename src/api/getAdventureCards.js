@@ -1,5 +1,9 @@
-export default function getAdventureCards() {
-  return fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/cards?', {
+export default function getAdventureCards(destinationNid) {
+  const filter = destinationNid
+    ? `?filterByFormula=(%7Bdestination%7D%3D%27${destinationNid}%27)`
+    : '';
+
+  return fetch(`https://api.airtable.com/v0/appgZL4JHAEkVQWiM/cards${filter}`, {
     headers: {
       Authorization: 'Bearer key3qboRJqEMAfhtg'
     }

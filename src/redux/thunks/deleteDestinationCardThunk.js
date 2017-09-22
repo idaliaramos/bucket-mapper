@@ -6,7 +6,7 @@ export default function deleteDestinationCardThunk(id) {
       databaseId: env.AIRTABLE_DATABASE_ID,
       token: env.AIRTABLE_TOKEN
     }).then(() => {
-      dispatch({ type: 'DELETE_MESSAGE_COMPLETED', id: id });
+      dispatch({ type: 'DELETE_DESTINATION_CARD_COMPLETED', id: id });
       return true;
     });
   };

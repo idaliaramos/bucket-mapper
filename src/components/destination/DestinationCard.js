@@ -1,11 +1,16 @@
 import React from 'react';
-import { blue500, indigo50 } from 'material-ui/styles/colors';
+import {
+  blue500,
+  indigo50,
+  indigo800,
+  purple700
+} from 'material-ui/styles/colors';
 import Paper from 'material-ui/Paper';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
+import { Link } from 'react-router-dom';
 const style = {
   height: 100,
   width: 300,
@@ -72,8 +77,10 @@ export default class DestinationCard extends React.Component {
             defaultValue={destinationCard.name}
           />
         </div>
+
         <div />
         <br />
+
         <button onClick={this._handleClickSaveButton}>Save</button>
       </div>
     );
@@ -90,21 +97,28 @@ export default class DestinationCard extends React.Component {
     });
   };
 
+  // <Link to={`/destinations/${destinationCard.id}`}>
+  //   <div>
+  //     <button onClick={this._handleClickSaveButton}>Enter</button>
+  //   </div>
+
   _renderDisplayMode() {
     const destinationCard = this.props.destinationCard;
     return (
       <div>
-        <div
-          style={{
-            marginTop: 20,
-            color: indigo50,
-            fontSize: 20,
-            verticalAlign: 'middle'
-          }}>
-          <div>
-            {destinationCard.name}
+        <Link to={`/destinations/${destinationCard.id}`}>
+          <div
+            style={{
+              marginTop: 20,
+              color: indigo50,
+              fontSize: 20,
+              verticalAlign: 'middle'
+            }}>
+            <div>
+              {destinationCard.name}
+            </div>
           </div>
-        </div>
+        </Link>
         <div />
         <br />
         <IconMenu

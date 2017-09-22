@@ -1,6 +1,6 @@
 export default function deleteCard(id) {
   return fetch(
-    `https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinationBoard/${id}`,
+    `https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinations/${id}`,
     {
       method: 'DELETE',
       headers: {

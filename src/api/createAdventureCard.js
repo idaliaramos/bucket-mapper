@@ -34,7 +34,7 @@ export default function createAdventureCard(tripData, { databaseId, token }) {
 */
 
 //
-// fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinationBoard?', {
+// fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/cards', {
 //   method: 'POST',
 //   headers: {
 //     Authorization: 'Bearer key3qboRJqEMAfhtg',

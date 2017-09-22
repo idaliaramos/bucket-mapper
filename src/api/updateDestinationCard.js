@@ -1,12 +1,8 @@
-import recordToDestinationCard from './utils/recordToDestinationCard';
+// import recordToAdventureCard from './utils/recordToAdventureCard';
 
-export default function updateDestinationCard(
-  id,
-  changes,
-  { databaseId, token }
-) {
+export default function updateDestinaCard(id, changes, { databaseId, token }) {
   return fetch(
-    `https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinationBoard/${id}`,
+    `https://api.airtable.com/v0/appgZL4JHAEkVQWiM/adventureBoard/${id}`,
     {
       method: 'PATCH',
       headers: {
@@ -20,7 +16,7 @@ export default function updateDestinationCard(
   )
     .then(response => response.json())
     .then(record => {
-      console.log(record, 'thisrecord');
+      // console.log(record, 'thisrecord');
       return {
         id: record.id,
         name: record.fields.name

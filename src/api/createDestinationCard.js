@@ -5,7 +5,7 @@ export default function createDestinationCard(
   { databaseId, token }
 ) {
   return fetch(
-    'https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinationBoard?',
+    'https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinations',
     {
       method: 'POST',
       headers: {
@@ -35,7 +35,7 @@ export default function createDestinationCard(
 */
 
 //
-// fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinationBoard?', {
+// fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinations', {
 //   method: 'POST',
 //   headers: {
 //     Authorization: 'Bearer key3qboRJqEMAfhtg',

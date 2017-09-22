@@ -1,14 +1,11 @@
 // import recordToDestinationCard from './utils/recordToDestinationCard';
 
 export default function getDestinationCards() {
-  return fetch(
-    'https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinationBoard?',
-    {
-      headers: {
-        Authorization: 'Bearer key3qboRJqEMAfhtg'
-      }
+  return fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinations', {
+    headers: {
+      Authorization: 'Bearer key3qboRJqEMAfhtg'
     }
-  )
+  })
     .then(response => response.json())
     .then(destinationCards => {
       return destinationCards.records.map(destinationCard => {
@@ -22,7 +19,7 @@ export default function getDestinationCards() {
     });
 }
 
-// fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinationBoard?', {
+// fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinations', {
 //   headers: {
 //     Authorization: 'Bearer key3qboRJqEMAfhtg'
 //   }
@@ -30,7 +27,7 @@ export default function getDestinationCards() {
 //   .then(response => response.json())
 //   .then(data => console.log(data));
 
-// fetch("https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinationBoard?", {
+// fetch("https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinations?", {
 //     headers: {
 //       Authorization: "Bearer key3qboRJqEMAfhtg"
 //     }

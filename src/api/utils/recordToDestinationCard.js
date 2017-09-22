@@ -1,6 +1,9 @@
-export default function recordToCard(record) {
+export default function recordToDestination(record) {
   return {
-    id: record,
-    name: record.fields.name
+    id: record.id,
+    nid: record.fields.nid,
+    name: record.fields.name,
+    cards: record.fields.cards,
+    createdTime: record.createdTime
   };
 }

@@ -4,21 +4,31 @@ import DestinationFormComponent from '../destination/DestinationFormComponent';
 import AdventureCard from '../adventureboard/AdventureCard';
 import ListCard from '../adventureboard/ListCard';
 import FormComponent from '../FormComponent';
+import NavigationComponent from '../nav/NavigationComponent';
 
-export default function adventurePage(props) {
+export default function AdventurePage(props) {
   console.log(props, 'props in adventure page');
+  function handleSaveTripData(tripData) {
+    props.onCreateTripData({
+      ...tripData,
+      destination: [props.destination.id]
+    });
+  }
   return (
     <div className="AdventurePage">
       <AdventurePageLayout>
-        {/* <ListCard /> */}
-        <FormComponent onSaveTripData={props.onSaveTripData} />
-        {/* <AdventureCard onSaveTripData={props.onSave} /> */}
+        {/* <NavigationComponent /> */}
+        <FormComponent onSaveTripData={handleSaveTripData} />
         {props.adventureCards &&
           props.adventureCards.map(adventureCard =>
             <AdventureCard
               key={adventureCard.id}
               adventureCard={adventureCard}
-              onSaveTripData={props.onSaveTripData}
+              onUpdateTripData={props.onUpdateTripData}
+              onUpdateAdventureCard={props.onUpdateAdventureCard}
+              onDeleteAdventureCard={props.onDeleteAdventureCard}
+              onShowAdventureCard={props.onShowAdventureCard}
+              onShow={props.onShow}
             />
           )}
       </AdventurePageLayout>

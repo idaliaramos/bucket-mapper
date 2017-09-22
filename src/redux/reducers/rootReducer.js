@@ -1,11 +1,25 @@
 export default function rootReducer(
   currentState = {
     destinationCards: [],
-    adventureCards: []
+    adventureCards: [],
+    onShow: false
   },
   action
 ) {
   switch (action.type) {
+    case 'GET_DESTINATION_COMPLETED':
+      const destination = currentState.destinationCards.find(
+        destination => destination.id === action.destination.id
+      );
+      return destination
+        ? currentState // TODO: Replace the existing destination instead of doing nothing!!!!
+        : {
+            ...currentState,
+            destinationCards: [
+              ...currentState.destinationCards,
+              action.destination
+            ]
+          };
     case 'GET_DESTINATION_CARDS_COMPLETED':
       return {
         ...currentState,
@@ -29,7 +43,7 @@ export default function rootReducer(
               : destinationCard
         )
       };
-    case 'DELETE_MESSAGE_COMPLETED':
+    case 'DELETE_DESTINATION_CARD_COMPLETED':
       return {
         ...currentState,
         destinationCards: currentState.destinationCards.filter(
@@ -45,6 +59,23 @@ export default function rootReducer(
       return {
         ...currentState,
         adventureCards: [action.adventureCard, ...currentState.adventureCards]
+      };
+    case 'UPDATED_ADVENTURE_CARD_COMPLETED':
+      console.log(action, 'action');
+      console.log(currentState.adventureCards, 'ADVENTURE CARDS');
+      return {
+        ...currentState,
+        adventureCards: currentState.adventureCards.map(
+          adventureCard =>
+            adventureCard.id === action.adventureCard.id
+              ? action.adventureCard
+              : adventureCard
+        )
+      };
+    case 'SHOW_ADVENTURE_CARD':
+      return {
+        ...currentState,
+        onShow: true
       };
     default:
       return currentState;
