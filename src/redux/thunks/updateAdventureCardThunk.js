@@ -10,6 +10,7 @@ export default function updateAdventureCardThunk(id, changes) {
         type: 'UPDATED_ADVENTURE_CARD_COMPLETED',
         adventureCard: adventureCard
       });
+
       return adventureCard;
     });
   };

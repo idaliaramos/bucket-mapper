@@ -15,10 +15,15 @@ const styles = {
  */
 export default class DropDownComponent extends Component {
   state = {
-    value: 1
+    value: 'catergory'
   };
 
-  handleChange = (event, index, value) => this.setState({ value });
+  handleChange = (event, index, value) => {
+    this.setState({ value });
+    if (this.props.onChange) {
+      this.props.onChange(value);
+    }
+  };
 
   render() {
     return (

@@ -1,4 +1,6 @@
 import React from 'react';
+import TextField from 'material-ui/TextField';
+import FlatButton from 'material-ui/FlatButton';
 import {
   blue500,
   indigo50,
@@ -63,7 +65,7 @@ export default class DestinationCard extends React.Component {
   _renderEditMode() {
     const destinationCard = this.props.destinationCard;
     return (
-      <div>
+      <form>
         <div
           style={{
             marginTop: 20,
@@ -76,13 +78,19 @@ export default class DestinationCard extends React.Component {
             type="text"
             defaultValue={destinationCard.name}
           />
+          {/* <TextField
+            id="nameInput"
+            ref="nameInput"
+            type="text"
+            defaultValue={destinationCard.name}
+          /> */}
         </div>
 
         <div />
         <br />
 
-        <button onClick={this._handleClickSaveButton}>Save</button>
-      </div>
+        <FlatButton onClick={this._handleClickSaveButton}>Save</FlatButton>
+      </form>
     );
   }
 

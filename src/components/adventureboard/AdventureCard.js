@@ -151,7 +151,7 @@ export default class AdventureCard extends React.Component {
             overlay={<CardTitle title={adventureCard.location} subtitle="" />}>
             <img src={adventureCard.image} alt="" />
           </CardMedia>
-          {/* <CardTitle title="" subtitle="" /> */}
+
           <CardText>
             {adventureCard.body}
           </CardText>

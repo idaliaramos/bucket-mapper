@@ -1,5 +1,5 @@
 export default {
-  destinations: [
+  destinationCards: [
     {
       id: 123,
       destination: 'Mexico'
@@ -7,6 +7,20 @@ export default {
     {
       id: 124,
       destination: 'Japan'
+    }
+  ],
+  adventureCards: [
+    {
+      id: 123,
+      location: 'Jamaica',
+      image: 'www.image.com',
+      body: ' some body'
+    },
+    {
+      id: 12,
+      location: 'Jama',
+      image: 'www.image1.com',
+      body: ' some other body'
     }
   ]
 };

@@ -28,6 +28,7 @@
 //   }
 // }
 import React from 'react';
+import { Link } from 'react-router-dom';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
@@ -41,21 +42,37 @@ import {
   ToolbarSeparator,
   ToolbarTitle
 } from 'material-ui/Toolbar';
-import { Link } from 'react-router-dom';
+import {
+  blue500,
+  indigo50,
+  indigo800,
+  purple700
+} from 'material-ui/styles/colors';
 
+const barStyle = {
+  display: 'block',
+  marginLeft: 0,
+  fill: indigo50,
+  height: 40,
+  width: 24,
+  userSelect: 'none',
+  color: indigo50
+};
 export default class NavigationComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 3
+      value: 3,
+      destinationCard: props.destinationCard
     };
   }
 
   handleChange = (event, index, value) => this.setState({ value });
 
   render() {
+    console.log(this.props, 'PROPS ON NAVIGATION');
     return (
-      <Toolbar>
+      <Toolbar style={barStyle}>
         {/* <ToolbarGroup firstChild={true}> */}
         {/* <DropDownMenu value={this.state.value} onChange={this.handleChange}>
             <MenuItem value={1} primaryText="All Broadcasts" />
@@ -64,11 +81,14 @@ export default class NavigationComponent extends React.Component {
           </DropDownMenu> */}
         {/* </ToolbarGroup> */}
         <ToolbarGroup>
-          {/* <ToolbarTitle text="Options" /> */}
+          {/* <ToolbarTitle text={this.props.destination.name} /> */}
           <FontIcon className="muidocs-icon-custom-sort" />
           <ToolbarSeparator />
           <Link to="/">
-            <RaisedButton label="Go To Destinations Page" primary={true} />{' '}
+            {/* {this.props.destinaton.name
+              ? <RaisedButton label="Go To Destinations Board" primary={true} />
+              : <RaisedButton label="Destinations Board" primary={true} />} */}
+            <RaisedButton label="Home" primary={true} />
           </Link>
           {/* <IconMenu
             iconButtonElement={

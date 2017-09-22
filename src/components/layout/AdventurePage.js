@@ -14,10 +14,11 @@ export default function AdventurePage(props) {
       destination: [props.destination.id]
     });
   }
+
   return (
     <div className="AdventurePage">
       <AdventurePageLayout>
-        {/* <NavigationComponent /> */}
+        {/* <NavigationComponent onCreateTripData={props.onCreateTripData} /> */}
         <FormComponent onSaveTripData={handleSaveTripData} />
         {props.adventureCards &&
           props.adventureCards.map(adventureCard =>

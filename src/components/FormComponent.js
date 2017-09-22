@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField';
 import { blue500 } from 'material-ui/styles/colors';
 import DropDownComponent from './DropDownComponent';
 
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 
 const styles = {
   errorStyle: {
@@ -37,45 +37,55 @@ export default class FormComponent extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      editMode: true,
+      location: '',
+      url: '',
+      body: ''
+    };
   }
   _handleClickOnSave = event => {
     event.preventDefault();
     const { onSaveTripData } = this.props;
-    let location = document.getElementById('activityName').value;
-    let body = document.getElementById('description').value;
+    let location = document.getElementById('location').value;
+    let body = document.getElementById('body').value;
     let url = document.getElementById('url').value;
     let tripData = { body: body, location: location, image: url };
+    let value = document.getElementbyId('category');
     // console.log(typeof tripData);
     // console.log('these are the props', this.props);
     // let category = document.getElementById('category').value;
-    console.log(event.target, 'EVENT TARGET');
+    console.log(value, 'EVENT TARGET');
     onSaveTripData(tripData);
     // this.props.onUpdateTripData(tripData, id);
+    console.log(
+      this.props.destinationCard,
+      '<<<<<<<<<<<props on form component'
+    );
   };
   _handleClickOnUpdate = event => {
     event.preventDefault();
 
     let $form = event.target;
 
-    let location = $form.activityName.value;
-    let body = $form.description.value;
+    let location = $form.location.value;
+    let body = $form.body.value;
     let url = $form.url.value;
     let id = this.props.adventureCard.id;
 
     const { onUpdateTripData } = this.props;
     let tripData = { body: body, location: location, image: url };
     onUpdateTripData(id, tripData);
+    this.setState({
+      editMode: false
+    });
   };
-  handleCancel = event => {
+  _onHandleCancel = event => {
     event.preventDefault();
-    // this.setState{
-    //   handleClick
-    // }
-    console.log(
-      this.props.destinationCard,
-      '<<<<<<<<<<<props on form component'
-    );
+    this.setState({
+      editMode: false
+    });
+    console.log(this.props.destinationCard, '<<<<<<<<<<<Cancel button');
   };
 
   render() {
@@ -90,13 +100,13 @@ export default class FormComponent extends Component {
         }>
         {this.props.adventureCard
           ? <TextField
-              id="activityName"
+              id="location"
               defaultValue={this.props.adventureCard.location}
               floatingLabelStyle={styles.floatingLabelStyle}
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
             />
           : <TextField
-              id="activityName"
+              id="location"
               floatingLabelText="Enter Location"
               floatingLabelStyle={styles.floatingLabelStyle}
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
@@ -118,7 +128,7 @@ export default class FormComponent extends Component {
         <br />
         {this.props.adventureCard
           ? <TextField
-              id="description"
+              id="body"
               // floatingLabelText= "body"
               defaultValue={this.props.adventureCard.body}
               floatingLabelStyle={styles.floatingLabelStyle}
@@ -128,7 +138,7 @@ export default class FormComponent extends Component {
               rows={2}
             />
           : <TextField
-              id="description"
+              id="body"
               floatingLabelText="Enter Description"
               floatingLabelStyle={styles.floatingLabelStyle}
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
@@ -136,7 +146,8 @@ export default class FormComponent extends Component {
         <DropDownComponent value={this.props.value} />
         <div>
           {this.props.update === true
-            ? <RaisedButton
+            ? <FlatButton
+                onSubmit={this._onHandleCancel}
                 type="submit"
                 label={this.props.update === true ? 'cancel' : null}
                 primary={true}
@@ -144,7 +155,7 @@ export default class FormComponent extends Component {
               />
             : null}
 
-          <RaisedButton
+          <FlatButton
             type="submit"
             label={this.props.update === true ? 'update' : 'save'}
             primary={true}
