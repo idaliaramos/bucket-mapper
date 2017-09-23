@@ -1,23 +1,22 @@
 import rootReducer from './rootReducer';
 
 import data from '../../mock-data';
+console.log(data.destinationCards[0], 'DATA');
 
 describe('root reducer', () => {
   it('action.type CREATE_DESTINATION_CARD_COMPLETED', () => {
     const action = {
       type: 'CREATE_DESTINATION_CARD_COMPLETED',
-      destinationCard: { ...data.destinationCards[0] }
+      destinationCard: data.destinationCards[0]
     };
 
     const currentState = {
-      destinationCards: [data.destinationCards[1]],
-      selectedNoteId: null
+      destinationCards: []
     };
 
     const nextState = {
-      destinationCards: [action.destinationCard, data.destinationCards[1]],
-      selectedDestinationId: action.destinationCard.id,
-      isCreatingNote: false
+      ...currentState,
+      destinationCards: [action.destinationCard]
     };
 
     expect(rootReducer(currentState, action)).toEqual(nextState);
