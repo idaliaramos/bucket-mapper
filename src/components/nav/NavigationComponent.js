@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SearchBarComponent from '../SearchBarComponent';
 import TextField from 'material-ui/TextField';
 
 import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
+
 import {
   Toolbar,
   ToolbarGroup
@@ -12,7 +11,6 @@ import {
   // ToolbarTitle
 } from 'material-ui/Toolbar';
 import {
-  blue500,
   indigo50
   // indigo800,
   // purple700
@@ -42,7 +40,6 @@ export default class NavigationComponent extends React.Component {
     event.preventDefault();
     let $form = event.target;
     let input = $form.input.value;
-
     this.props.onSearch(input);
   };
 
@@ -66,8 +63,6 @@ export default class NavigationComponent extends React.Component {
             />
           </form>
         </ToolbarGroup>
-
-        {/* <SearchBarComponent style={{ marginLeft: '80%' }} /> */}
       </Toolbar>
     );
   }

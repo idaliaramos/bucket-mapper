@@ -35,31 +35,3 @@ export default class App extends Component {
     );
   }
 }
-// export default class App extends Component {
-//   render() {
-//     // console.log(this.props, 'this props');
-//     return (
-//       <div>
-//         {/* <Router>
-//           <Switch> */}
-//         <Provider store={store}>
-//           <MuiThemeProvider>
-//             {/* <Route
-//                   exact
-//                   path="/destinations/:destinationId"
-//                   component={DestinationsPageContainer}
-//                 /> */}
-//             <AdventurePageContainer />
-//             {/* <Route
-//                   exact
-//                   path="/destinations/:destinationId"
-//                   component={AdventurePageContainer}
-//                 /> */}
-//           </MuiThemeProvider>
-//         </Provider>
-//         {/* </Switch> */}
-//         {/* // </Router>  */}
-//       </div>
-//     );
-//   }
-// }

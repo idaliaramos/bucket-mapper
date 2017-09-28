@@ -4,7 +4,6 @@ import FormComponent from '../FormComponent';
 import {
   Card,
   CardActions,
-  CardHeader,
   CardMedia,
   CardTitle,
   CardText
@@ -13,8 +12,6 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
-import FlatButton from 'material-ui/FlatButton';
 
 //
 const style = {
@@ -37,14 +34,9 @@ export default class AdventureCard extends React.Component {
     this.state = {
       editMode: false
     };
-    // this.handleClick = this.handleClick.bind(this);
   }
-  //fuction handle update trip data
 
-  // this.props.onUpdateTripData ( trip data)
   render() {
-    console.log(this.props, 'PROPSssss');
-    const adventureCard = this.props.adventureCard;
     return (
       // <ReactCardFlip isFlipped={this.state.isFlipped}>
       <div>
@@ -84,8 +76,6 @@ export default class AdventureCard extends React.Component {
     );
   }
   _handleClickSaveButton = event => {
-    console.log(this.refs.nameInput, 'HANDLC');
-    // console.log(this.refs.nameInput.value, '<<<<<<');
     this.props.onUpdateAdventureCard(this.props.adventureCard.id, {
       image: this.props.adventureCard.url,
       location: this.refs.location.value,
@@ -100,7 +90,6 @@ export default class AdventureCard extends React.Component {
     this.setState({
       editMode: true
     });
-    // this.props.onShowAdventureCard();
   };
   _handleClickDelete = event => {
     this.props.onDeleteAdventureCard(this.props.adventureCard.id);
@@ -120,7 +109,6 @@ export default class AdventureCard extends React.Component {
             {adventureCard.body}
           </CardText>
           <CardActions>
-            {/* <FlatButton onClick={this._handleEditClick} label="Edit" /> */}
             <div>
               <IconMenu
                 iconButtonElement={

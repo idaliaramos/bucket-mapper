@@ -1,12 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
-import {
-  blue500,
-  indigo50,
-  indigo800,
-  purple700
-} from 'material-ui/styles/colors';
+import { blue500, indigo50 } from 'material-ui/styles/colors';
 import Paper from 'material-ui/Paper';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -75,15 +70,10 @@ export default class DestinationCard extends React.Component {
           }}>
           <input
             ref="nameInput"
+            id="name"
             type="text"
             defaultValue={destinationCard.name}
           />
-          {/* <TextField
-            id="nameInput"
-            ref="nameInput"
-            type="text"
-            defaultValue={destinationCard.name}
-          /> */}
         </div>
 
         <div />
@@ -104,11 +94,6 @@ export default class DestinationCard extends React.Component {
       editMode: false
     });
   };
-
-  // <Link to={`/destinations/${destinationCard.id}`}>
-  //   <div>
-  //     <button onClick={this._handleClickSaveButton}>Enter</button>
-  //   </div>
 
   _renderDisplayMode() {
     const destinationCard = this.props.destinationCard;
