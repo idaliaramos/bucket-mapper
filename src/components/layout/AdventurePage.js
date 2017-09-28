@@ -12,8 +12,6 @@ export default class AdventurePage extends Component {
   };
 
   render() {
-    console.log(this.props, 'props in adventure page');
-
     return (
       <div className="AdventurePage">
         <AdventurePageLayout>

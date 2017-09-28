@@ -2,11 +2,11 @@ export default {
   destinationCards: [
     {
       id: 123,
-      destination: 'Mexico'
+      name: 'Mexico'
     },
     {
       id: 124,
-      destination: 'Japan'
+      name: 'Japan'
     }
   ],
   adventureCards: [

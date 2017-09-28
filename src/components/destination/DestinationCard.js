@@ -97,6 +97,7 @@ export default class DestinationCard extends React.Component {
 
   _renderDisplayMode() {
     const destinationCard = this.props.destinationCard;
+    console.log(destinationCard, '<<<<<<<<<<<<<');
     return (
       <div>
         <Link to={`/destinations/${destinationCard.id}`}>
@@ -123,8 +124,16 @@ export default class DestinationCard extends React.Component {
           }
           anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
           targetOrigin={{ horizontal: 'left', vertical: 'top' }}>
-          <MenuItem primaryText="edit" onClick={this.handleEditClick} />
-          <MenuItem primaryText="delete" onClick={this.handleClickDelete} />
+          <MenuItem
+            primaryText="edit"
+            id="edit"
+            onClick={this.handleEditClick}
+          />
+          <MenuItem
+            primaryText="delete"
+            id="delete"
+            onClick={this.handleClickDelete}
+          />
         </IconMenu>
       </div>
     );
@@ -137,9 +146,6 @@ export default class DestinationCard extends React.Component {
     });
   };
   handleClickDelete = event => {
-    console.log('ia m in delete');
     this.props.onDeleteDestination(this.props.destinationCard.id);
-    console.log(this.props.destinationCard, 'p');
-    console.log(this.props.destinationCard.id, 'dci');
   };
 }

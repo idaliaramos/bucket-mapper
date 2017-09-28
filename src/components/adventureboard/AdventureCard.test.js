@@ -3,15 +3,28 @@ import { shallow } from 'enzyme';
 
 import AdventureCard from './AdventureCard.js';
 
-const shallowWrapper = shallow(
-  <AdventureCard adventureCard={this.props.adventureCard} />
-);
+const obj = {
+  card: ['recnyQoVem3b7MmH6'],
+  id: 'rec40e4JFScw8F07X',
+  location: 'mexico',
+  body: 'text',
+  category: 'hike'
+};
 
-describe('AdventureCard', () => {
+const shallowWrapper = shallow(<AdventureCard adventureCard={obj} />);
+
+describe('AdventureCard with edit mode true shall find a form component', () => {
+  shallowWrapper.setState({ editMode: true });
   it('input', () => {
     expect(shallowWrapper.find('FormComponent')).toHaveLength(1);
   });
+
+  it('should show edit and delete Icon Menu', () => {
+    shallowWrapper.setState({ editMode: false });
+    expect(shallowWrapper.find('IconMenu')).toHaveLength(1);
+  });
   it('edit and delete Icon Menu', () => {
-    expect(shallowWrapper.find('IconMenu')).toHaveLength(2);
+    shallowWrapper.setState({ editMode: true });
+    expect(shallowWrapper.find('IconMenu')).toHaveLength(0);
   });
 });

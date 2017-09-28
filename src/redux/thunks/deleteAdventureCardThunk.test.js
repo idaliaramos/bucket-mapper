@@ -21,7 +21,7 @@ describe('deleteAdventureCardProcess', () => {
       expect(deleteAdventureCard).toBeCalled();
       expect(dispatch).toBeCalledWith({
         type: 'DELETE_ADVENTURE_CARD_COMPLETED',
-        adventureCardId: data.adventureCards[0].id
+        id: data.adventureCards[0].id
       });
     });
   });
