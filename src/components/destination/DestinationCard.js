@@ -97,7 +97,7 @@ export default class DestinationCard extends React.Component {
 
   _renderDisplayMode() {
     const destinationCard = this.props.destinationCard;
-    console.log(destinationCard, '<<<<<<<<<<<<<');
+
     return (
       <div>
         <Link to={`/destinations/${destinationCard.id}`}>

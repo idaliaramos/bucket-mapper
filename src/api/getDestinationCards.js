@@ -12,7 +12,7 @@ export default function getDestinationCards() {
         return {
           id: destinationCard.id,
           nid: destinationCard.fields.nid,
-          card: destinationCard.fields.cards,
+          cards: destinationCard.fields.cards,
           name: destinationCard.fields.name
         };
       });

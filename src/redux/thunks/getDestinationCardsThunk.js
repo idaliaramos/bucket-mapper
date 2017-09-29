@@ -6,8 +6,5 @@ export default function getDestinationCardsThunks() {
       dispatch({ type: 'GET_DESTINATION_CARDS_COMPLETED', destinationCards });
       return destinationCards;
     });
-    // .catch(error => {
-    //   dispatch({ type: 'GET_MESSAGES_FAILED' });
-    // });
   };
 }

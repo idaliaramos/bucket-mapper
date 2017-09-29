@@ -12,7 +12,6 @@ export default function createAdventureCard(tripData, { databaseId, token }) {
   })
     .then(response => response.json())
     .then(record => {
-      console.log(record);
       return {
         id: record.id,
         location: record.fields.location,
