@@ -22,6 +22,7 @@ function mapDispatchToProps(dispatch, ownProps) {
     onSaveDestination: destination =>
       dispatch(createDestinationThunk(destination)),
     onUpdateDestination: (id, changes) => {
+      console.log(changes, id, 'this is the change');
       dispatch(updateDestinationCardThunk(id, changes));
       // console.log('>>>', id, changes);
     },

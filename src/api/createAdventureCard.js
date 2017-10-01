@@ -1,5 +1,4 @@
 export default function createAdventureCard(tripData, { databaseId, token }) {
-  console.log(tripData);
   return fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/cards', {
     method: 'POST',
     headers: {

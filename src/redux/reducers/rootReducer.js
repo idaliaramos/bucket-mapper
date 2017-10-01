@@ -68,8 +68,6 @@ export default function rootReducer(
         adventureCards: [action.adventureCard, ...currentState.adventureCards]
       };
     case 'UPDATED_ADVENTURE_CARD_COMPLETED':
-      console.log(action, 'action');
-      console.log(currentState.adventureCards, 'ADVENTURE CARDS');
       return {
         ...currentState,
         adventureCards: currentState.adventureCards.map(

@@ -6,16 +6,6 @@ import data from './data';
 
 describe('getDestinationCards', () => {
   it('Calls fetch and returns destinations', () => {
-    // fetch.mockResponse(
-    //   JSON.stringify( data.destinationCards.records.map(destinationCard => {
-    //       return {
-    //         id: destinationCard.id,
-    //         nid: destinationCard.fields.nid,
-    //         card: destinationCard.fields.cards,
-    //         name: destinationCard.fields.name
-    //       };
-    //     })
-    // ))
     fetch.mockResponse(
       JSON.stringify({
         records: data.destinationCards.map(destinationToRecord)

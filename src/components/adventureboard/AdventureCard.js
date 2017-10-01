@@ -86,7 +86,6 @@ export default class AdventureCard extends React.Component {
     });
   };
   _handleEditClick = event => {
-    console.log('i clicked the edit');
     this.setState({
       editMode: true
     });
@@ -184,7 +183,7 @@ export default class AdventureCard extends React.Component {
 //
 //   _handleClickEdit = event => {
 //     event.preventDefault();
-//     console.log('in the edit adv card');
+
 //     this.props.onEditAdventureCard(this.adventureCard.id);
 //   };
 // }

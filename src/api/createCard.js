@@ -12,9 +12,7 @@ export default function createCard(input, { databaseId, token }) {
     })
   })
     .then(response => {
-      console.log(response, 'this is repsonse');
       response.json();
     })
-    .then(recordToDestinationCard)
-    .then(card => console.log(card));
+    .then(recordToDestinationCard);
 }

@@ -12,7 +12,6 @@ const store = setupStore();
 
 export default class App extends Component {
   render() {
-    // console.log(this.props, 'this props');
     return (
       <MuiThemeProvider>
         <div className="App">
@@ -21,7 +20,6 @@ export default class App extends Component {
               <Switch>
                 <Route exact path="/" component={DestinationsPageContainer} />
 
-                {/* <AdventurePageContainer /> */}
                 <Route
                   exact
                   path="/destinations/:destinationId"

@@ -37,12 +37,6 @@ export default class DestinationCard extends React.Component {
     this.state = {};
   }
 
-  // handlePaperClick = event => {
-  //   console.log('i clicked the paper');
-  //   console.log(event);
-  //   this.goToTravelboard(event.id);
-  // };
-
   render() {
     const destinationCard = this.props.destinationCard;
 
@@ -85,8 +79,6 @@ export default class DestinationCard extends React.Component {
   }
 
   _handleClickSaveButton = event => {
-    // console.log(this.refs.nameInput);
-    // console.log(this.refs.nameInput.value, '<<<<<<');
     this.props.onUpdateDestination(this.props.destinationCard.id, {
       name: this.refs.nameInput.value
     });
@@ -140,7 +132,6 @@ export default class DestinationCard extends React.Component {
   }
 
   handleEditClick = event => {
-    console.log('i clicked the edit');
     this.setState({
       editMode: true
     });

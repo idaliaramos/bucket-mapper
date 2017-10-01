@@ -16,34 +16,9 @@ export default function createDestinationCard(
   })
     .then(response => response.json())
     .then(record => {
-      console.log(record, 'this is the record');
       return {
         id: record.id,
         name: record.fields.name
       };
     });
-  //or return the record, which is the nid and the name
 }
-
-/*
-{
- id: 123213,
- name: 'adfadfd'
-}
-*/
-
-//
-// fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinations', {
-//   method: 'POST',
-//   headers: {
-//     Authorization: 'Bearer key3qboRJqEMAfhtg',
-//     'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify({
-//     fields: {name: "Iceland"}
-//   })
-// })
-//  .then(response => response.json())
-//  .then(record => {
-//   console.log(record.fields.name);
-// });

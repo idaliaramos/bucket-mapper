@@ -61,7 +61,7 @@ export default class FormComponent extends Component {
       image: this.state.image,
       category: this.state.category
     };
-    console.log(tripData, 'tripdata');
+
     onSaveTripData(tripData);
     document.form.reset();
   };
@@ -95,7 +95,6 @@ export default class FormComponent extends Component {
   };
 
   render() {
-    // console.log('this is props', this.props);
     return (
       <form
         name="form"
@@ -145,7 +144,6 @@ export default class FormComponent extends Component {
               defaultValue={this.props.adventureCard.body}
               floatingLabelStyle={styles.floatingLabelStyle}
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-              // floatingLabelText= "MultiLine and FloatingLabel"
               multiLine={true}
               rows={2}
             />
@@ -183,12 +181,6 @@ export default class FormComponent extends Component {
             type="submit"
             label={this.props.update === true ? 'update' : 'save'}
             primary={true}
-            // onClick={handleCancel}
-            // onClick={
-            //   this.props.update === true
-            //     ? this._handleClickOnUpdate
-            //     : this._handleClickOnSave
-            // }
           />
         </div>
       </form>
