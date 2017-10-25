@@ -4,11 +4,14 @@ export default function getAdventureCards(destinationNid) {
     ? `?filterByFormula=(%7Bdestination%7D%3D%27${destinationNid}%27)`
     : '';
 
-  return fetch(`https://api.airtable.com/v0/appgZL4JHAEkVQWiM/cards${filter}`, {
-    headers: {
-      Authorization: 'Bearer key3qboRJqEMAfhtg'
+  return fetch(
+    `https://api.airtable.com/v0/appgZL4JHAEkVQWiM/adventures${filter}`,
+    {
+      headers: {
+        Authorization: 'Bearer key3qboRJqEMAfhtg'
+      }
     }
-  })
+  )
     .then(response => response.json())
     .then(adventureCards => {
       return adventureCards.records.map(adventureCard => {
@@ -28,7 +31,7 @@ export default function getAdventureCards(destinationNid) {
 //     ? `?filterByFormula=(%7Bdestination%7D%3D%27${destinationNid}%27)`
 //     : '';
 //
-//   return fetch(`https://api.airtable.com/v0/appgZL4JHAEkVQWiM/cards${filter}`, {
+//   return fetch(`https://api.airtable.com/v0/appgZL4JHAEkVQWiM/adventures${filter}`, {
 //     headers: {
 //       Authorization: 'Bearer key3qboRJqEMAfhtg'
 //     }
