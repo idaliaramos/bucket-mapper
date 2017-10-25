@@ -1,5 +1,5 @@
 import React from 'react';
-import NavigationComponent from '../nav/NavigationComponent';
+// import NavigationComponent from '../nav/NavigationComponent';
 
 export default function AdventurePageLayout(props) {
   const style = {

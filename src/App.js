@@ -19,7 +19,6 @@ export default class App extends Component {
             <Router>
               <Switch>
                 <Route exact path="/" component={DestinationsPageContainer} />
-
                 <Route
                   exact
                   path="/destinations/:destinationId"
