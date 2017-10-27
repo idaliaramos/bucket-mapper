@@ -16,7 +16,8 @@ class Login extends Component {
       <div>
         <MuiThemeProvider>
           <div>
-            <AppBar title="Login" />
+            <AppBar title="Bucket Mapper" />
+            <div>Sign Up!</div>
             <TextField
               hintText="Enter your Email"
               floatingLabelText="Email"
@@ -37,6 +38,31 @@ class Login extends Component {
               style={style}
               onClick={event => this.handleClick(event)}
             />
+            <div>
+              {/* <AppBar title="Login" /> */}
+              <div>Sign In!</div>
+              <TextField
+                hintText="Enter your Email"
+                floatingLabelText="Email"
+                onChange={(event, newValue) =>
+                  this.setState({ email: newValue })}
+              />
+              <br />
+              <TextField
+                type="password"
+                hintText="Enter your Password"
+                floatingLabelText="Password"
+                onChange={(event, newValue) =>
+                  this.setState({ password: newValue })}
+              />
+              <br />
+              <RaisedButton
+                label="Submit"
+                primary={true}
+                style={style}
+                onClick={event => this.handleClick(event)}
+              />
+            </div>
           </div>
         </MuiThemeProvider>
       </div>

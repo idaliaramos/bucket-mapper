@@ -12,6 +12,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+var travel = require('./travel.jpg');
 
 //
 const style = {
@@ -101,7 +102,10 @@ export default class AdventureCard extends React.Component {
         <Card id={adventureCard.id}>
           <CardMedia
             overlay={<CardTitle title={adventureCard.location} subtitle="" />}>
-            <img src={adventureCard.image} alt="" />
+            <img
+              src={adventureCard.image ? adventureCard.image : travel}
+              alt=""
+            />
           </CardMedia>
 
           <CardText>
