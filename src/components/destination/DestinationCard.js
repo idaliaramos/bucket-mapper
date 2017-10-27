@@ -69,10 +69,8 @@ export default class DestinationCard extends React.Component {
             defaultValue={destinationCard.name}
           />
         </div>
-
         <div />
         <br />
-
         <FlatButton onClick={this._handleClickSaveButton}>Save</FlatButton>
       </form>
     );
