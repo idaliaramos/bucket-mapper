@@ -155,6 +155,7 @@ export default class FormComponent extends Component {
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
             />}
         <SelectField
+          multiple={true}
           id="category"
           floatingLabelText="category"
           value={this.state.category}

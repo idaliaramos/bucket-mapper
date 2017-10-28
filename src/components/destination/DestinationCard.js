@@ -8,6 +8,13 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import { Link } from 'react-router-dom';
+import {
+  Card
+  // CardActions,
+  // CardMedia,
+  // CardTitle,
+  // CardText
+} from 'material-ui/Card';
 const style = {
   height: 100,
   width: 300,
@@ -29,6 +36,7 @@ export default class DestinationCard extends React.Component {
   static defaultProps = {
     onUpdateDestination: () => {},
     onDeleteDestination: () => {}
+
     // goToTravelboard: () => {}
   };
 
@@ -42,11 +50,11 @@ export default class DestinationCard extends React.Component {
 
     return (
       <div>
-        <Paper style={style} zDepth={1} id={destinationCard.id}>
+        <Card style={style} zDepth={1} id={destinationCard.id}>
           {this.state.editMode === true
             ? this._renderEditMode()
             : this._renderDisplayMode()}
-        </Paper>
+        </Card>
       </div>
     );
   }

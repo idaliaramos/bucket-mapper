@@ -31,6 +31,7 @@
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-15": "^1.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
+    "react-image-resizer": "^1.2.0",
     "react-test-renderer": "^15.6.2",
     "storybook-addon-material-ui": "^0.8.0"
   }

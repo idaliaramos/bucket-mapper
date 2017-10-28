@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactCardFlip from 'react-card-flip';
 import FormComponent from '../FormComponent';
+import Image from 'react-image-resizer';
 import {
   Card,
   CardActions,
@@ -21,6 +22,9 @@ const style = {
   textAlign: 'center',
   display: 'block'
 };
+// display: 'block',
+//  width: '30vw',
+//  transitionDuration: '0.3s',
 
 export default class AdventureCard extends React.Component {
   static defaultProps = {
@@ -105,6 +109,8 @@ export default class AdventureCard extends React.Component {
             <img
               src={adventureCard.image ? adventureCard.image : travel}
               alt=""
+              width={240}
+              height={240}
             />
           </CardMedia>
 

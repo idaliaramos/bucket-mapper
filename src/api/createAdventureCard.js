@@ -14,7 +14,7 @@ export default function createAdventureCard(tripData, { databaseId, token }) {
       return {
         id: record.id,
         location: record.fields.location,
-        catergory: record.fields.catergory,
+        category: record.fields.category,
         image: record.fields.image,
         body: record.fields.body
       };
