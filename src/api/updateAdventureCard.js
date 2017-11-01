@@ -1,5 +1,5 @@
 // import recordToAdventureCard from './utils/recordToAdventureCard';
-
+import env from '../env';
 export default function updateAdventureCard(
   id,
   changes,
@@ -7,7 +7,8 @@ export default function updateAdventureCard(
 ) {
   console.log(id, changes, 'id, changes');
   return fetch(
-    `https://api.airtable.com/v0/appgZL4JHAEkVQWiM/adventures/${id}`,
+    // `https://api.airtable.com/v0/appgZL4JHAEkVQWiM/adventures/${id}`,
+    `${env.API_BASE_URL}/adventures/${id}`,
     {
       method: 'PATCH',
       headers: {

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "boom": "^6.0.0",
     "jest": "^21.1.0",
     "jest-cli": "^21.1.0",
     "jest-fetch-mock": "^1.2.1",

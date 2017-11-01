@@ -1,8 +1,9 @@
 // import recordToAdventureCard from './utils/recordToAdventureCard';
-
+import env from '../env';
 export default function updateDestinaCard(id, changes, { databaseId, token }) {
   return fetch(
-    `https://api.airtable.com/v0/appgZL4JHAEkVQWiM/adventureBoard/${id}`,
+    // `https://api.airtable.com/v0/appgZL4JHAEkVQWiM/adventureBoard/${id}`,
+    `${env.API_BASE_URL}/adventures/${id}`,
     {
       method: 'PATCH',
       headers: {
