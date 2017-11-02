@@ -11,7 +11,7 @@ export default function getAdventureCards(destinationId) {
           category: adventureCard.category,
           body: adventureCard.description,
           location: adventureCard.location,
-          image: adventureCard.image
+          image: adventureCard.url
         };
       });
     });
