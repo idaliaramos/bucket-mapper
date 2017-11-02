@@ -1,11 +1,9 @@
 import updateDestinationCard from '../../api/updateDestinationCard';
-
+//
 export default function updateDestinationCardThunk(id, changes) {
+  console.log(id, changes, '<<<<<<<<<<<<<intheTHUNK');
   return (dispatch, getState, env) => {
-    return updateDestinationCard(id, changes, {
-      databaseId: env.AIRTABLE_DATABASE_ID,
-      token: env.AIRTABLE_TOKEN
-    }).then(destinationCard => {
+    return updateDestinationCard(id, changes).then(destinationCard => {
       dispatch({
         type: 'UPDATED_DESTINATION_CARD_COMPLETED',
         destinationCard: destinationCard

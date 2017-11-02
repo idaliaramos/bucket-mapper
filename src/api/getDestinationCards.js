@@ -1,8 +1,8 @@
 // import recordToDestinationCard from './utils/recordToDestinationCard';
 import env from '../env';
 export default function getDestinationCards() {
-  // REACT_APP_API_BASE_URL => http://localhost:8000
-  return fetch(`${env.API_BASE_URL}/users/1/destinations`, {}).then(response =>
+  console.log('hi', env.API_BASE_URL); // REACT_APP_API_BASE_URL => http://localhost:8000
+  return fetch(`${env.API_BASE_URL}/users/2/destinations`).then(response =>
     response.json()
   );
 }

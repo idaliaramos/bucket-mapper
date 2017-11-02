@@ -1,5 +1,5 @@
 import getDestination from '../../api/getDestination';
-
+//change to getDestinationCards?
 export default function getDestinationThunk(destinationId) {
   return (dispatch, getState, env) => {
     return getDestination(destinationId).then(destination => {

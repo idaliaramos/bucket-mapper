@@ -6,23 +6,21 @@ export default function createDestinationCard(
 ) {
   return fetch(
     // 'https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinations',
-    `${env.REACT_APP_API_BASE_URL}/users/1/destinations`,
+    `${env.API_BASE_URL}/users/1/destinations`,
     {
       method: 'POST',
-      // headers: {
-      //   Authorization: 'Bearer key3qboRJqEMAfhtg',
-      //   'Content-Type': 'application/json'
-      // },
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
-        fields: destination
+        name: destination.name,
+        url: destination.url
       })
     }
   )
     .then(response => response.json())
     .then(record => {
-      return {
-        id: record.id,
-        name: record.fields.name
-      };
+      console.log(record, 'this is the record');
+      return record;
     });
 }

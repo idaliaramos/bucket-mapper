@@ -10,7 +10,6 @@ export default class AdventurePage extends Component {
   state = {
     filterTerm: ''
   };
-
   render() {
     return (
       <div className="AdventurePage">
@@ -52,10 +51,9 @@ export default class AdventurePage extends Component {
   }
 
   _handleSaveTripData = tripData => {
-    this.props.onCreateTripData({
-      ...tripData,
-      destination: [this.props.destination.id]
-    });
+    console.log(tripData, 'this is the trip data');
+    console.log(this.props, 'this is the destination');
+    this.props.onCreateTripData(tripData, this.props.destinationId);
   };
 
   _handleSearch = filterTerm => {
