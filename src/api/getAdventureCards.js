@@ -1,9 +1,20 @@
 // import recordToAdventureCard from './utils/recordToAdventureCard';
 import env from '../env';
 export default function getAdventureCards(destinationId) {
-  return fetch(
-    `${env.API_BASE_URL}/destinations/${destinationId}/adventures`
-  ).then(response => response.json());
+  return fetch(`${env.API_BASE_URL}/destinations/${destinationId}/adventures`)
+    .then(response => response.json())
+    .then(adventureCards => {
+      return adventureCards.map(adventureCard => {
+        console.log(adventureCard, 'thisis the adventurecard');
+        return {
+          id: adventureCard.id,
+          category: adventureCard.category,
+          body: adventureCard.description,
+          location: adventureCard.location,
+          image: adventureCard.image
+        };
+      });
+    });
 }
 
 // export default function getAdventureCards(destinationNid) {
@@ -21,10 +32,10 @@ export default function getAdventureCards(destinationId) {
 //       return adventureCards.records.map(adventureCard => {
 //         return {
 //           id: adventureCard.id,
-//           category: adventureCard.fields.category,
-//           body: adventureCard.fields.body,
-//           location: adventureCard.fields.location,
-//           image: adventureCard.fields.image
+//           category: record.category,
+//           body: record.description,
+//           location: record.location,
+//           image: record.image
 //         };
 //       });
 //     });
