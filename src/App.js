@@ -5,7 +5,9 @@ import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DestinationsPageContainer from './redux/containers/DestinationPageContainer';
 import AdventurePageContainer from './redux/containers/AdventurePageContainer';
-import loginPage from './components/login/loginPage';
+
+// import LoginPageContainer from './redux/containers/LoginPageContainer';
+import RegisterPageContainer from './redux/containers/RegisterPageContainer';
 
 import setupStore from './redux/setupStore';
 
@@ -19,7 +21,8 @@ export default class App extends Component {
           <Provider store={store}>
             <Router>
               <Switch>
-                <Route exact path="/login" component={loginPage} />
+                {/* <Route exact path="/login" component={LoginPageContainer} /> */}
+                <Route exact path="/signUp" component={RegisterPageContainer} />
                 <Route
                   exact
                   path="/destinations"

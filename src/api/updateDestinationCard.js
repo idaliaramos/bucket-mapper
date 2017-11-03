@@ -3,16 +3,12 @@ import env from '../env';
 export default function updateDestinationCard(id, changes) {
   console.log(id, 'this is the id');
 
-  return fetch(
-    // `https://api.airtable.com/v0/appgZL4JHAEkVQWiM/adventureBoard/${id}`,
-    `${env.API_BASE_URL}/destinations/${id}`,
-    {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+  return fetch(`${env.API_BASE_URL}/destinations/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
 
-      body: JSON.stringify(changes)
-    }
-  ).then(response => response.json());
+    body: JSON.stringify(changes)
+  }).then(response => response.json());
 }

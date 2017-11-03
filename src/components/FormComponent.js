@@ -63,7 +63,8 @@ export default class FormComponent extends Component {
     };
 
     onSaveTripData(tripData);
-    document.form.reset();
+    // document.form.reset();
+    document.getElementById('form').reset();
   };
 
   _handleLocationChange = (event, value) => {
@@ -98,6 +99,7 @@ export default class FormComponent extends Component {
     return (
       <form
         name="form"
+        id="form"
         style={style}
         onSubmit={
           this.props.update === true
