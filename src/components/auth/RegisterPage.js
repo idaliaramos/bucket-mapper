@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
 import DefaultPageLayout from './DefaultPageLayout';
-import RegisterAccountForm from './RegisterForm';
+import RegisterForm from './RegisterForm';
 
 export default class RegisterPage extends Component {
   static defaultProps = {
-    onSubmit: () => {}
+    onCreateUser: () => {}
   };
 
   render() {
     return (
       <div className="RegisterPage">
         <DefaultPageLayout title="Account Registration">
-          <RegisterAccountForm onSubmit={this.props.onSubmit} />
+          <RegisterForm onCreateUser={this.props.onCreateUser} />
         </DefaultPageLayout>
       </div>
     );

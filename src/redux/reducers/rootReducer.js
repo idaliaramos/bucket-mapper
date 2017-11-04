@@ -2,7 +2,8 @@ export default function rootReducer(
   currentState = {
     destinationCards: [],
     adventureCards: [],
-    onShow: false
+    onShow: false,
+    userInfo: null
   },
   action
 ) {
@@ -67,6 +68,15 @@ export default function rootReducer(
         ...currentState,
         adventureCards: [action.adventureCard, ...currentState.adventureCards]
       };
+    case 'CREATE_USER_COMPLETED':
+      return {
+        user: [action.user, ...currentState.user]
+      };
+    case 'LOGIN_USER_COMPLETED':
+      return {
+        user: [action.userInfo, ...currentState.userInfo]
+      };
+
     case 'UPDATED_ADVENTURE_CARD_COMPLETED':
       return {
         ...currentState,

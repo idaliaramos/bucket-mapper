@@ -7,17 +7,16 @@ import createUserThunk from '../thunks/createUserThunk';
 
 function mapStateToProps(state) {
   return {
-    // authenticatedUser: selectAuthenticatedUser(state)
+    // authenticatedUser: selectAuthenticatedUser(state)???
   };
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    onCreateUser: attributes => dispatch(createUserThunk(attributes))
-    // async onSubmit(attributes) {
-    //   await dispatch(createUserThunk.create(attributes));
-    // ownProps.history.push('/login');
-    // }
+    async onCreateUser(attributes) {
+      await dispatch(createUserThunk(attributes));
+      ownProps.history.push('/login');
+    }
   };
 }
 

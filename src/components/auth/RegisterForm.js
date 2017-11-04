@@ -3,9 +3,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-class Login extends Component {
+class Register extends Component {
   static defaultProps = {
-    onSubmit: () => {}
+    onCreateUser: () => {}
   };
 
   constructor(props) {
@@ -81,10 +81,10 @@ class Login extends Component {
     };
     console.log(userInfo);
     // this.props.
-    this.props.onSubmit(userInfo);
+    this.props.onCreateUser(userInfo);
   };
 }
 const style = {
   margin: 15
 };
-export default Login;
+export default Register;
