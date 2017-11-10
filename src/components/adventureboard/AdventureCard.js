@@ -86,7 +86,7 @@ export default class AdventureCard extends React.Component {
       // image: this.props.adventureCard.url,
       image: this.refs.image.value,
       location: this.refs.location.value,
-      body: this.refs.body.value
+      description: this.refs.description.value
     });
     this.setState({
       editMode: false
@@ -117,7 +117,7 @@ export default class AdventureCard extends React.Component {
           </CardMedia>
 
           <CardText>
-            {adventureCard.body}
+            {adventureCard.description}
           </CardText>
           <CardActions>
             <div>

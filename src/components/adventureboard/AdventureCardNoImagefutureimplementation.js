@@ -17,7 +17,7 @@ export default function AdventureCardNoImage(props) {
     <Card style={style}>
       <CardTitle title={adventureCard.name} />
       <CardText>
-        {adventureCard.body}
+        {adventureCard.description}
       </CardText>
       <CardActions>
         <FlatButton label="Edit" />

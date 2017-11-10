@@ -7,7 +7,7 @@ const obj = {
   card: ['recnyQoVem3b7MmH6'],
   id: 'rec40e4JFScw8F07X',
   location: 'mexico',
-  body: 'text',
+  description: 'text',
   category: 'hike'
 };
 

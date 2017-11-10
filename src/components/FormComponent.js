@@ -41,23 +41,17 @@ export default class FormComponent extends Component {
     this.state = {
       location: '',
       image: '',
-      body: '',
+      description: '',
       category: ''
     };
   }
   _handleClickOnSave = event => {
     event.preventDefault();
     const { onSaveTripData } = this.props;
-    // let location = document.getElementById('location').value;
-    // let body = document.getElementById('body').value;
-    // let url = document.getElementById('url').value;
-    // let tripData = { body: body, location: location, image: url };
-    // let value = document.getElementbyId('category');
 
-    // this.props.onUpdateTripData(tripData, id);
     let tripData = {
       location: this.state.location,
-      body: this.state.body,
+      description: this.state.description,
       image: this.state.image,
       category: this.state.category
     };
@@ -74,7 +68,7 @@ export default class FormComponent extends Component {
     this.setState({ image: value });
   };
   _handleBodyChange = (event, value) => {
-    this.setState({ body: value });
+    this.setState({ description: value });
   };
   _handleCategoryChange = (event, index, value) => {
     this.setState({ category: value });
@@ -83,11 +77,15 @@ export default class FormComponent extends Component {
     event.preventDefault();
     let $form = event.target;
     let location = $form.location.value;
-    let body = $form.body.value;
+    let description = $form.description.value;
     let image = $form.url.value;
     let id = this.props.adventureCard.id;
     const { onUpdateTripData } = this.props;
-    let tripData = { body: body, location: location, image: image };
+    let tripData = {
+      description: description,
+      location: location,
+      image: image
+    };
     onUpdateTripData(id, tripData);
   };
   _onHandleCancel = event => {
@@ -140,17 +138,16 @@ export default class FormComponent extends Component {
         <br />
         {this.props.adventureCard
           ? <TextField
-              id="body"
+              id="description"
               onChange={this._handleBodyChange}
-              // floatingLabelText= "body"
-              defaultValue={this.props.adventureCard.body}
+              defaultValue={this.props.adventureCard.description}
               floatingLabelStyle={styles.floatingLabelStyle}
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
               multiLine={true}
               rows={2}
             />
           : <TextField
-              id="body"
+              id="description"
               onChange={this._handleBodyChange}
               floatingLabelText="Enter Description"
               floatingLabelStyle={styles.floatingLabelStyle}

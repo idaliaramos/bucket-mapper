@@ -17,7 +17,7 @@ export default function getAdventureCards(destinationId) {
           id: adventureCard.id,
           category: adventureCard.category,
           name: adventureCard.name,
-          body: adventureCard.description,
+          description: adventureCard.description,
           location: adventureCard.location,
           image: adventureCard.url
         };

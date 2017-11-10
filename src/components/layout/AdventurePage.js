@@ -28,7 +28,9 @@ export default class AdventurePage extends Component {
                 return this.state.filterTerm !== ''
                   ? adventureCard.category
                     ? adventureCard.category.includes(this.state.filterTerm) ||
-                      adventureCard.body.includes(this.state.filterTerm) ||
+                      adventureCard.description.includes(
+                        this.state.filterTerm
+                      ) ||
                       adventureCard.location.includes(this.state.filterTerm)
                     : false
                   : true;
