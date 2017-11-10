@@ -36,6 +36,12 @@ export default class NavigationComponent extends React.Component {
 
   handleChange = (event, index, value) => this.setState({ value });
 
+  handleLogout = e => {
+    //console.log(this.props, 'this is the props');
+    localStorage.removeItem('token');
+    this.props.history.push('/login');
+  };
+
   _handleSearch = event => {
     event.preventDefault();
     let $form = event.target;
@@ -54,6 +60,8 @@ export default class NavigationComponent extends React.Component {
               : <RaisedButton label="Destinations Board" primary={true} />} */}
             <RaisedButton label="Home" primary={true} />
           </Link>
+
+          <RaisedButton label="Logout" onClick={this.handleLogout} />
 
           <form action="" onSubmit={this._handleSearch}>
             {' '}<TextField

@@ -81,10 +81,12 @@ export default class AdventureCard extends React.Component {
     );
   }
   _handleClickSaveButton = event => {
+    //console.log(this.refs, 'this is the refs <<<<<<<<<');
     this.props.onUpdateAdventureCard(this.props.adventureCard.id, {
-      image: this.props.adventureCard.url,
+      // image: this.props.adventureCard.url,
+      image: this.refs.image.value,
       location: this.refs.location.value,
-      body: this.refs.location.value
+      body: this.refs.body.value
     });
     this.setState({
       editMode: false

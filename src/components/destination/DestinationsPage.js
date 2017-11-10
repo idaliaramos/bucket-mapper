@@ -7,7 +7,7 @@ import DestinationCard from './DestinationCard';
 export default function DestinationsPage(props) {
   return (
     <div className="DestinationsPage">
-      <DestinationsPageLayout>
+      <DestinationsPageLayout {...props}>
         <DestinationFormComponent
           onSaveDestination={props.onSaveDestination}
           onDeleteDestination={props.onDeleteDestination}

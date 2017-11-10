@@ -23,20 +23,18 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   const { destinationId } = ownProps.match.params;
-  console.log(destinationId, 'thisis the destinationid');
-  console.log(destinationId, '<<<<<<<<<id');
+  //console.log(destinationId, 'thisis the destinationid');
+  //console.log(destinationId, '<<<<<<<<<id');
   return {
     onMount: () =>
       dispatch(getDestinationThunk(destinationId)).then(destination => {
-        console.log(
-          destination,
-          'this is the destination in the adventure page container'
-        );
         dispatch(getAdventureCardsThunk(destination.id));
       }),
     //added destination Id
-    onCreateTripData: (tripData, destinationId) =>
-      dispatch(createAdventureCardThunk(tripData, destinationId)),
+    onCreateTripData: (tripData, destinationId) => {
+      //console.log(tripData, 'hello avery, in the adven page');
+      dispatch(createAdventureCardThunk(tripData, destinationId));
+    },
     onUpdateTripData: (tripData, id) => {
       dispatch(updateAdventureCardThunk(tripData, id));
     },

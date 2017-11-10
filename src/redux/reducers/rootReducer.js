@@ -74,7 +74,7 @@ export default function rootReducer(
       };
     case 'LOGIN_USER_COMPLETED':
       return {
-        user: [action.userInfo, ...currentState.userInfo]
+        userInfo: [action.userInfo, ...currentState.userInfo]
       };
 
     case 'UPDATED_ADVENTURE_CARD_COMPLETED':

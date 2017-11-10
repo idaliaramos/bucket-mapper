@@ -10,7 +10,7 @@ export default function DestinationsPageLayout(prop) {
 
   return (
     <div>
-      <NavigationComponent />
+      <NavigationComponent {...prop} />
       <div style={style}>
         {prop.children[0]}
         {prop.children[1]}

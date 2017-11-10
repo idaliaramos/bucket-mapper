@@ -1,14 +1,15 @@
 import env from '../env';
 export default function createAdventureCard(tripData, id) {
-  console.log(id, '<<<<<<<<<<this is the id');
+  //console.log(id, '<<<<<<<<<<this is the id');
+  const token = localStorage.getItem('token');
   return fetch(
     // 'https://api.airtable.com/v0/appgZL4JHAEkVQWiM/adventures',
     `${env.API_BASE_URL}/destinations/${id}/adventures`,
     {
       method: 'POST',
       headers: {
-        // Authorization: 'Bearer key3qboRJqEMAfhtg',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
       },
       body: JSON.stringify({
         // id: tripData.id,
