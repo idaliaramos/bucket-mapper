@@ -17,13 +17,13 @@ export default {
     {
       id: 123,
       location: 'Jamaica',
-      image: 'www.image.com',
+      url: 'www.image.com',
       body: ' some body'
     },
     {
       id: 12,
       location: 'Jama',
-      image: 'www.image1.com',
+      url: 'www.image1.com',
       body: ' some other body'
     }
   ]

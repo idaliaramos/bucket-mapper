@@ -40,7 +40,7 @@ export default class FormComponent extends Component {
 
     this.state = {
       location: '',
-      image: '',
+      url: '',
       description: '',
       category: ''
     };
@@ -52,7 +52,7 @@ export default class FormComponent extends Component {
     let tripData = {
       location: this.state.location,
       description: this.state.description,
-      image: this.state.image,
+      url: this.state.url,
       category: this.state.category
     };
 
@@ -65,7 +65,7 @@ export default class FormComponent extends Component {
     this.setState({ location: value });
   };
   _handleUrlChange = (event, value) => {
-    this.setState({ image: value });
+    this.setState({ url: value });
   };
   _handleBodyChange = (event, value) => {
     this.setState({ description: value });
@@ -78,13 +78,13 @@ export default class FormComponent extends Component {
     let $form = event.target;
     let location = $form.location.value;
     let description = $form.description.value;
-    let image = $form.url.value;
+    let url = $form.url.value;
     let id = this.props.adventureCard.id;
     const { onUpdateTripData } = this.props;
     let tripData = {
       description: description,
       location: location,
-      image: image
+      url: url
     };
     onUpdateTripData(id, tripData);
   };
@@ -124,7 +124,7 @@ export default class FormComponent extends Component {
           ? <TextField
               id="url"
               onChange={this._handleUrlChange}
-              defaultValue={this.props.adventureCard.image}
+              defaultValue={this.props.adventureCard.url}
               floatingLabelStyle={styles.floatingLabelStyle}
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
             />

@@ -14,9 +14,9 @@ export default function createAdventureCard(tripData, id) {
       body: JSON.stringify({
         // id: tripData.id,
         location: tripData.location,
-        // image: tripData.image,
+        url: tripData.url,
         // category: tripData.category,
-        url: tripData.image,
+
         // userId: tripData.userId,
         description: tripData.description
         // category: tripData.category

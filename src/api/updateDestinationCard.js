@@ -13,8 +13,9 @@ export default function updateDestinationCard(id, changes) {
     body: JSON.stringify(changes)
   })
     .then(response => {
-      //console.log(response, 'this si sht response');
-      response.json();
+      //fix
+      console.log(response, 'this is the response');
+      return response.json();
     })
     .catch(error => console.log(error));
 }

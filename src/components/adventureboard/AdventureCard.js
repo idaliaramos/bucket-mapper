@@ -83,8 +83,8 @@ export default class AdventureCard extends React.Component {
   _handleClickSaveButton = event => {
     //console.log(this.refs, 'this is the refs <<<<<<<<<');
     this.props.onUpdateAdventureCard(this.props.adventureCard.id, {
-      // image: this.props.adventureCard.url,
-      image: this.refs.image.value,
+      // url: this.props.adventureCard.url,
+      url: this.refs.url.value,
       location: this.refs.location.value,
       description: this.refs.description.value
     });
@@ -109,7 +109,7 @@ export default class AdventureCard extends React.Component {
           <CardMedia
             overlay={<CardTitle title={adventureCard.location} subtitle="" />}>
             <img
-              src={adventureCard.image ? adventureCard.image : travel}
+              src={adventureCard.url ? adventureCard.url : travel}
               alt=""
               width={240}
               height={240}
@@ -180,7 +180,7 @@ export default class AdventureCard extends React.Component {
 //       <Card style={style}>
 //         <CardMedia
 //           overlay={<CardTitle title={adventureCard.location} subtitle="" />}>
-//           <img src={adventureCard.image} alt="" />
+//           <img src={adventureCard.url} alt="" />
 //         </CardMedia>
 //         {/* <CardTitle title="" subtitle="" /> */}
 //         <CardText>

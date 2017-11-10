@@ -8,7 +8,7 @@ const obj = {
   location: 'mexico',
   body: 'text',
   category: 'hike',
-  image: undefined
+  url: null
 };
 const shallowWrapper = shallow(<AdventureCardNoImage adventureCard={obj} />);
 
