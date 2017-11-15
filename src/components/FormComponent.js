@@ -114,6 +114,7 @@ export default class FormComponent extends Component {
             />
           : <TextField
               id="location"
+              required
               onChange={this._handleLocationChange}
               floatingLabelText="Enter Location"
               floatingLabelStyle={styles.floatingLabelStyle}

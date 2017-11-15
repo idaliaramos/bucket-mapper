@@ -8,7 +8,7 @@ import AdventurePageContainer from './redux/containers/AdventurePageContainer';
 
 import LoginPageContainer from './redux/containers/LoginPageContainer';
 import RegisterPageContainer from './redux/containers/RegisterPageContainer';
-
+import ErrorPage from './components/ErrorPage';
 import setupStore from './redux/setupStore';
 
 const store = setupStore();
@@ -22,11 +22,7 @@ export default class App extends Component {
             <Router>
               <Switch>
                 <Route exact path="/login" component={LoginPageContainer} />
-                <Route
-                  exact
-                  path="/register"
-                  component={RegisterPageContainer}
-                />
+                <Route exact path="/" component={RegisterPageContainer} />
                 <Route
                   exact
                   path="/destinations"
@@ -36,6 +32,9 @@ export default class App extends Component {
                   exact
                   path="/destinations/:destinationId"
                   component={AdventurePageContainer}
+                />
+                <Route
+                  render={() => <ErrorPage errorCode="ERROR_NOT_FOUND" />}
                 />
               </Switch>
             </Router>

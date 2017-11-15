@@ -45,6 +45,7 @@ export default class DestinationFormComponent extends Component {
       <form name="form" style={style}>
         <TextField
           id="destinationName"
+          required
           // value={this.state.title || ''}
           floatingLabelText="Enter Destination Name"
           floatingLabelStyle={styles.floatingLabelStyle}

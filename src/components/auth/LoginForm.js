@@ -30,6 +30,7 @@ class LoginForm extends Component {
               <br />
               <TextField
                 name="email"
+                required
                 hintText="Enter your Email"
                 floatingLabelText="Email" //
                 onChange={(event, newValue) =>
@@ -37,6 +38,8 @@ class LoginForm extends Component {
               />
               <br />
               <TextField
+                required
+                minCharacters={8}
                 name="password"
                 type="password"
                 hintText="Enter your Password"

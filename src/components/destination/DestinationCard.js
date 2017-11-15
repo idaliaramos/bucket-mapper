@@ -73,6 +73,7 @@ export default class DestinationCard extends React.Component {
           <input
             ref="nameInput"
             id="name"
+            required
             type="text"
             defaultValue={destinationCard.name}
           />

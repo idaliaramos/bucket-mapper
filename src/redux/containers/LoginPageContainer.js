@@ -34,8 +34,14 @@ function mapDispatchToProps(dispatch, ownProps) {
   return {
     async onLogin(attributes) {
       console.log(attributes, 'this is athe attributes');
-      await dispatch(loginUserThunk(attributes));
-      ownProps.history.push('/destinations');
+      let correctInput = await dispatch(loginUserThunk(attributes));
+      // console.log(correct, 'is this correct, true of false')
+      //michael best practice?
+      if (!correctInput) {
+        ownProps.history.push('/login');
+      } else {
+        ownProps.history.push('/destinations');
+      }
     }
   };
 }
