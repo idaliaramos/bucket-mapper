@@ -58,7 +58,7 @@ export default class NavigationComponent extends React.Component {
             {/* {this.props.destinaton.name
               ? <RaisedButton label="Go To Destinations Board" primary={true} />
               : <RaisedButton label="Destinations Board" primary={true} />} */}
-            <RaisedButton label="Home" primary={true} />
+            <RaisedButton label="Destinations" primary={true} />
           </Link>
 
           <RaisedButton label="Logout" onClick={this.handleLogout} />

@@ -27,6 +27,12 @@ const style = {
   // textAlign: 'center',
   display: 'block'
 };
+// const initialState = {
+//   location: '',
+//   url: '',
+//   description: '',
+//   category: ''
+// };
 
 export default class FormComponent extends Component {
   static defaultProps = {
@@ -55,10 +61,16 @@ export default class FormComponent extends Component {
       url: this.state.url,
       category: this.state.category
     };
-
+    console.log('i am in the handleClickOnSave');
     onSaveTripData(tripData);
-    // document.form.reset();
-    document.getElementById('form').reset();
+
+    this.setState({
+      location: '',
+      url: '',
+      description: '',
+      category: ''
+    });
+    // console.log(this.ste, 'this is the state');
   };
 
   _handleLocationChange = (event, value) => {
@@ -86,7 +98,17 @@ export default class FormComponent extends Component {
       location: location,
       url: url
     };
+    // var frm = document.getElementsByName('form');
     onUpdateTripData(id, tripData);
+    // frm.reset();
+    // document.form.reset();
+    // document.getElementById('form').reset();
+    this.setState({
+      location: '',
+      url: '',
+      description: '',
+      category: ''
+    });
   };
   _onHandleCancel = event => {
     event.preventDefault();
@@ -115,6 +137,7 @@ export default class FormComponent extends Component {
           : <TextField
               id="location"
               required
+              value={this.state.location}
               onChange={this._handleLocationChange}
               floatingLabelText="Enter Location"
               floatingLabelStyle={styles.floatingLabelStyle}
@@ -131,6 +154,7 @@ export default class FormComponent extends Component {
             />
           : <TextField
               id="url"
+              value={this.state.url}
               onChange={this._handleUrlChange}
               floatingLabelText="Enter url"
               floatingLabelStyle={styles.floatingLabelStyle}
@@ -146,10 +170,13 @@ export default class FormComponent extends Component {
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
               multiLine={true}
               rows={2}
+              value={this.state.description}
             />
           : <TextField
               id="description"
               onChange={this._handleBodyChange}
+              value={this.state.description}
+              //change
               floatingLabelText="Enter Description"
               floatingLabelStyle={styles.floatingLabelStyle}
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
@@ -182,6 +209,7 @@ export default class FormComponent extends Component {
             type="submit"
             label={this.props.update === true ? 'update' : 'save'}
             primary={true}
+            // value="Reset"
           />
         </div>
       </form>

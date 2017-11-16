@@ -11,7 +11,7 @@ export default function getAdventureCards(destinationId) {
   })
     .then(response => response.json())
     .then(adventureCards => {
-      //console.log(adventureCards);
+      console.log(adventureCards);
       return adventureCards.map(adventureCard => {
         return {
           id: adventureCard.id,

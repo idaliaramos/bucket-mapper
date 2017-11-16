@@ -7,12 +7,13 @@ export default function getDestination(destinationId) {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     }
-  })
-    .then(response => {
-      console.log(response, 'this is the repsonse ');
-      return response.json();
-    })
-    .catch();
+  }).then(response => {
+    // if (response.status === 401 || response.status === 500) {
+    //   throw new Error();
+    // }
+    console.log(response, 'this is the repsonse ');
+    return response.json();
+  });
 }
 //async version
 // export default async function getDestination(destinationId) {

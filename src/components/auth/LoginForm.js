@@ -39,7 +39,6 @@ class LoginForm extends Component {
               <br />
               <TextField
                 required
-                minCharacters={8}
                 name="password"
                 type="password"
                 hintText="Enter your Password"

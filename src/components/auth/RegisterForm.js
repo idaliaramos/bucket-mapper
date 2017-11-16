@@ -14,7 +14,8 @@ class Register extends Component {
     this.state = {
       name: '',
       email: '',
-      password: ''
+      password: '',
+      error: null
     };
   }
   render() {
@@ -50,10 +51,9 @@ class Register extends Component {
                 <br />
                 <TextField
                   required
-                  minCharacters={8}
                   name="password"
                   type="password"
-                  errorMessage="Password must be at least 8 characters long"
+                  // errorMessage="Password must be at least 8 characters long"
                   hintText="Enter your Password"
                   floatingLabelText="Password"
                   onChange={(event, newValue) =>
