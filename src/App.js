@@ -22,12 +22,12 @@ export default class App extends Component {
             <Router>
               <Switch>
                 <Route exact path="/login" component={LoginPageContainer} />
-                <Route exact path="/" component={RegisterPageContainer} />
                 <Route
                   exact
-                  path="/destinations"
-                  component={DestinationsPageContainer}
+                  path="/register"
+                  component={RegisterPageContainer}
                 />
+                <Route exact path="/" component={DestinationsPageContainer} />
                 <Route
                   exact
                   path="/destinations/:destinationId"

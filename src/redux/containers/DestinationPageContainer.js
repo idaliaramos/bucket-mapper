@@ -17,9 +17,11 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
+  console.log(ownProps, 'this ownprops');
   return {
     onMount: () => dispatch(getDestinationCardsThunk(ownProps)),
     //maybe not on mount, need t pass the id
+
     onSaveDestination: destination =>
       dispatch(createDestinationThunk(destination)),
     onUpdateDestination: (id, changes) => {

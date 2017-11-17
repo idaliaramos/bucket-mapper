@@ -36,7 +36,13 @@ export default class DestinationFormComponent extends Component {
     event.preventDefault();
     // const { onSaveDestination } = this.props;
     let name = document.getElementById('destinationName').value;
+    if (!name) {
+      event.preventDefault();
+      window.alert('please enter a location');
+      return;
+    }
     this.props.onSaveDestination({ name });
+
     document.form.reset();
   };
   render() {

@@ -98,6 +98,11 @@ class Register extends Component {
       email: email,
       password: password
     };
+    if (password.length < 8) {
+      event.preventDefault();
+      window.alert('password must be at leat 8 characters');
+      return;
+    }
     console.log(userInfo);
     this.props.onCreateUser(userInfo);
   };

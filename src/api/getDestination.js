@@ -8,9 +8,10 @@ export default function getDestination(destinationId) {
       Authorization: `Bearer ${token}`
     }
   }).then(response => {
-    // if (response.status === 401 || response.status === 500) {
-    //   throw new Error();
-    // }
+    if (response.status === 401) {
+      console.log('am here');
+      return new Error();
+    }
     console.log(response, 'this is the repsonse ');
     return response.json();
   });

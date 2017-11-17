@@ -21,6 +21,8 @@ export default function rootReducer(
               action.destination
             ]
           };
+
+    // case 'GET_DESTINATION_FAILED'
     case 'GET_DESTINATION_CARDS_COMPLETED':
       return {
         ...currentState,
