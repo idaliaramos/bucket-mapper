@@ -17,7 +17,8 @@ function mapStateToProps(state, ownProps) {
       destination => destination.id === destinationId
     ),
     adventureCards: state.adventureCards,
-    onShow: state.onShow
+    onShow: state.onShow,
+    fail: state.fail
   };
 }
 
@@ -27,7 +28,10 @@ function mapDispatchToProps(dispatch, ownProps) {
   // console.log(destinationId, '<<<<<<<<<id');
   return {
     onMount: () =>
-      dispatch(getDestinationThunk(destinationId)).then(destination => {
+      dispatch(
+        getDestinationThunk(destinationId, ownProps)
+      ).then(destination => {
+        //fail
         console.log(destination, 'in page containter');
         dispatch(getAdventureCardsThunk(destination.id));
       }),

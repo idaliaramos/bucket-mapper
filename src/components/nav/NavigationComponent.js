@@ -54,7 +54,7 @@ export default class NavigationComponent extends React.Component {
     return (
       <Toolbar>
         <ToolbarGroup>
-          <Link to="/">
+          <Link to="/destinations">
             {/* {this.props.destinaton.name
               ? <RaisedButton label="Go To Destinations Board" primary={true} />
               : <RaisedButton label="Destinations Board" primary={true} />} */}

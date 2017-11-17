@@ -15,7 +15,7 @@ export default async function getUser(id, { baseUrl, token }) {
     const body = await response.json();
     if (response.status !== 200) throw new Error(body.message);
     console.log(body, 'this is the body');
-    return;
+    return body;
   } catch (error) {
     if (error.message.startsWith('UserService.ERROR_')) throw error;
     throw new Error('UserService.ERROR_UNEXPECTED');

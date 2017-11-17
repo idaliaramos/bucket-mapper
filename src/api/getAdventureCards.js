@@ -9,8 +9,22 @@ export default function getAdventureCards(destinationId) {
       Authorization: `Bearer ${token}`
     }
   })
-    .then(response => response.json())
+    .then(response => {
+      console.log(response.status, 'this is the resp on get adventureCards');
+      if (response.status !== 200 && response.status !== 201) {
+        // return undefined;
+        console.log('not a 200');
+        // throw new Error()
+        // return;
+      } else {
+        return response.json();
+      }
+    })
     .then(adventureCards => {
+      // if (!adventureCards) {
+      //   console.log('there are no adventureCards');
+      //   // throw new Error();
+      // }
       console.log(adventureCards);
       return adventureCards.map(adventureCard => {
         return {
@@ -23,4 +37,7 @@ export default function getAdventureCards(destinationId) {
         };
       });
     });
+  // .catch(error){
+  //
+  // };
 }

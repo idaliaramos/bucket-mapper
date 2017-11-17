@@ -12,7 +12,8 @@ import deleteDestinationCardThunk from '../thunks/deleteDestinationCardThunk';
 
 function mapStateToProps(state, ownProps) {
   return {
-    destinationCards: state.destinationCards
+    destinationCards: state.destinationCards,
+    fail: state.fail
   };
 }
 

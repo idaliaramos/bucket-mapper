@@ -3,7 +3,8 @@ export default function rootReducer(
     destinationCards: [],
     adventureCards: [],
     onShow: false,
-    userInfo: null
+    userInfo: null,
+    fail: false
   },
   action
 ) {
@@ -22,7 +23,16 @@ export default function rootReducer(
             ]
           };
 
-    // case 'GET_DESTINATION_FAILED'
+    case 'GET_DESTINATION_FAILED':
+      return {
+        ...currentState,
+        fail: true
+      };
+    case 'GET_ADVENTURE_CARDS_FAILED':
+      return {
+        ...currentState,
+        fail: true
+      };
     case 'GET_DESTINATION_CARDS_COMPLETED':
       return {
         ...currentState,

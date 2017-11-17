@@ -31,6 +31,9 @@ class Register extends Component {
             <MuiThemeProvider>
               <div>
                 <AppBar title="Bucket Mapper" />
+                <h2>
+                  {this.state.error}
+                </h2>
                 <TextField
                   id="name"
                   required
@@ -88,7 +91,7 @@ class Register extends Component {
   _handleSwitch = event => {
     event.preventDefault();
   };
-  _handleClickOnSubmit = event => {
+  _handleClickOnSubmit = async event => {
     event.preventDefault();
     var name = document.login.name.value.trim();
     var email = document.login.email.value.trim();
@@ -104,6 +107,11 @@ class Register extends Component {
       return;
     }
     console.log(userInfo);
+    // const createdUser = await this.props.onCreateUser(userInfo);
+    // if (!createdUser) {
+    //   this.state({ error: 'Email already exists' });
+    // }
+    // console.log(createdUser);
     this.props.onCreateUser(userInfo);
   };
 }

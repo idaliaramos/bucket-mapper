@@ -45,6 +45,7 @@ export default class AdventureCard extends React.Component {
     return (
       // <ReactCardFlip isFlipped={this.state.isFlipped}>
       <div>
+        {/* this.props.fail ? ownProps.history.push('/') : ever */}
         <Card style={style}>
           {this.state.editMode === true
             ? this._renderEditMode()

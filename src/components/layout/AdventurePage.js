@@ -18,10 +18,12 @@ export default class AdventurePage extends Component {
             onCreateTripData={this.props.onCreateTripData}
             onSearch={this._handleSearch}
           />
-          <FormComponent
-            onSaveTripData={this._handleSaveTripData}
-            onChange={this.props.onChange}
-          />
+          {this.props.fail
+            ? this.props.history.push('/destinations')
+            : <FormComponent
+                onSaveTripData={this._handleSaveTripData}
+                onChange={this.props.onChange}
+              />}
           {this.props.adventureCards &&
             this.props.adventureCards
               .filter(adventureCard => {
@@ -45,6 +47,7 @@ export default class AdventurePage extends Component {
                   onShowAdventureCard={this.props.onShowAdventureCard}
                   onShow={this.props.onShow}
                   onChange={this.props.onChange}
+                  //fail={this.props.fail}
                 />
               )}
         </AdventurePageLayout>

@@ -1,4 +1,5 @@
 import env from '../env';
+import ErrorPage from '../components/ErrorPage';
 export default function getDestination(destinationId) {
   const token = localStorage.getItem('token');
   console.log(token, 'this is the token');
@@ -8,13 +9,17 @@ export default function getDestination(destinationId) {
       Authorization: `Bearer ${token}`
     }
   }).then(response => {
-    if (response.status === 401) {
-      console.log('am here');
-      return new Error();
+    console.log(response.status, 'reps in get destination');
+    if (response.status !== 200 && response.status !== 201) {
+      console.log('i am in the error dest get');
+      throw new Error();
     }
     console.log(response, 'this is the repsonse ');
     return response.json();
   });
+  // .catch(error){
+  //   return undefined
+  // };
 }
 //async version
 // export default async function getDestination(destinationId) {

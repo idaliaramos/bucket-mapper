@@ -24,7 +24,8 @@ const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
 const withLifecycle = lifecycle({
   componentDidMount() {
-    if (this.props.authenticatedUser) this.props.history.push('/');
+    if (this.props.authenticatedUser) this.props.history.push('/register');
+    //check
   }
 });
 
