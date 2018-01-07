@@ -27,12 +27,6 @@ const style = {
   // textAlign: 'center',
   display: 'block'
 };
-// const initialState = {
-//   location: '',
-//   url: '',
-//   description: '',
-//   category: ''
-// };
 
 export default class FormComponent extends Component {
   static defaultProps = {
@@ -54,7 +48,6 @@ export default class FormComponent extends Component {
   _handleClickOnSave = event => {
     event.preventDefault();
     const { onSaveTripData } = this.props;
-
     let tripData = {
       location: this.state.location,
       description: this.state.description,
@@ -63,7 +56,6 @@ export default class FormComponent extends Component {
     };
     console.log('i am in the handleClickOnSave');
     onSaveTripData(tripData);
-
     this.setState({
       location: '',
       url: '',
@@ -98,11 +90,7 @@ export default class FormComponent extends Component {
       location: location,
       url: url
     };
-    // var frm = document.getElementsByName('form');
     onUpdateTripData(id, tripData);
-    // frm.reset();
-    // document.form.reset();
-    // document.getElementById('form').reset();
     this.setState({
       location: '',
       url: '',

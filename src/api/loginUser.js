@@ -6,6 +6,5 @@ export default function loginUser(attributes) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(attributes)
-    //do some local storage thing so give them token an store it
   }).then(response => response.json());
 }

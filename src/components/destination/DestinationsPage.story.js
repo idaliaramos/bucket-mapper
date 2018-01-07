@@ -27,11 +27,3 @@ storiesOf('Destinations Page Layout', module)
       <DestinationCard />
     </DestinationsPageLayout>
   );
-
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import AppBar from 'material-ui/AppBar';
-// import Paper from 'material-ui/Paper';
-// import TextField from 'material-ui/TextField';
-// import { orange500, blue500 } from 'material-ui/styles/colors';
-// import FlatButton from 'material-ui/FlatButton';
-// import RaisedButton from 'material-ui/RaisedButton';

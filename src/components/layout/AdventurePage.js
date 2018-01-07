@@ -8,15 +8,19 @@ import NavigationComponent from '../nav/NavigationComponent';
 
 export default class AdventurePage extends Component {
   state = {
-    filterTerm: ''
+    filterTerm: '',
+    adventureCardPage: true
   };
   render() {
+    console.log(this.props, 'these are the props');
     return (
       <div className="AdventurePage">
         <AdventurePageLayout>
           <NavigationComponent
             onCreateTripData={this.props.onCreateTripData}
             onSearch={this._handleSearch}
+            destinationCards={this.props.destinationCards}
+            //check
           />
           {this.props.fail
             ? this.props.history.push('/destinations')

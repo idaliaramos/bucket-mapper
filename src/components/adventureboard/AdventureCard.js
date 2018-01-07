@@ -43,7 +43,6 @@ export default class AdventureCard extends React.Component {
 
   render() {
     return (
-      // <ReactCardFlip isFlipped={this.state.isFlipped}>
       <div>
         {/* this.props.fail ? ownProps.history.push('/') : ever */}
         <Card style={style}>
@@ -55,10 +54,9 @@ export default class AdventureCard extends React.Component {
             : this._renderDisplayMode()} */}
         </Card>
       </div>
-      // </ReactCardFlip>
     );
   }
-  //example
+
   updateTripData = (...args) => {
     this.props.onUpdateTripData(...args);
     this.state = {
@@ -82,9 +80,7 @@ export default class AdventureCard extends React.Component {
     );
   }
   _handleClickSaveButton = event => {
-    //console.log(this.refs, 'this is the refs <<<<<<<<<');
     this.props.onUpdateAdventureCard(this.props.adventureCard.id, {
-      // url: this.props.adventureCard.url,
       url: this.refs.url.value,
       location: this.refs.location.value,
       description: this.refs.description.value

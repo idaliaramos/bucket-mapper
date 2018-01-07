@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TextField from 'material-ui/TextField';
-
+import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import {
   Toolbar,
-  ToolbarGroup
+  ToolbarGroup,
   // ToolbarSeparator,
-  // ToolbarTitle
+  ToolbarTitle
 } from 'material-ui/Toolbar';
 import {
   indigo50
@@ -30,14 +30,13 @@ export default class NavigationComponent extends React.Component {
     super(props);
     this.state = {
       value: 3,
-      destinationCard: props.destinationCard
+      destinationCard: this.props.destinationCards
     };
   }
 
   handleChange = (event, index, value) => this.setState({ value });
 
   handleLogout = e => {
-    //console.log(this.props, 'this is the props');
     localStorage.removeItem('token');
     this.props.history.push('/login');
   };
@@ -50,28 +49,38 @@ export default class NavigationComponent extends React.Component {
   };
 
   render() {
-    console.log(this.props, 'PROPS ON NAVIGATION');
+    console.log(this.props.destinationCards, 'this is the des card');
+    //check props how can i set it for this one specifically in the state
+    let destinationCard =
+      Object.assign({}, ...this.props.destinationCards) || '';
     return (
-      <Toolbar>
-        <ToolbarGroup>
-          <Link to="/destinations">
-            {/* {this.props.destinaton.name
+      <AppBar title="Bucket Mapper">
+        {/* <Toolbar> */}
+        {/* <ToolbarGroup> */}
+        <Link to="/destinations">
+          {/* {this.props.destinaton.name
               ? <RaisedButton label="Go To Destinations Board" primary={true} />
               : <RaisedButton label="Destinations Board" primary={true} />} */}
-            <RaisedButton label="Destinations" primary={true} />
-          </Link>
+          <RaisedButton label="Destinations" primary={true} />
+        </Link>
 
-          <RaisedButton label="Logout" onClick={this.handleLogout} />
-
-          <form action="" onSubmit={this._handleSearch}>
-            {' '}<TextField
-              id="input"
-              hintText="Search"
-              style={{ marginLeft: 950 }}
-            />
-          </form>
-        </ToolbarGroup>
-      </Toolbar>
+        <ToolbarTitle
+          title={
+            <span>
+              {/* {destinationCard.name} */}
+              Title
+            </span>
+          }
+          style={{ marginLeft: 500 }}
+          // text={destinationCard.name}
+        />
+        <form action="" onSubmit={this._handleSearch}>
+          <TextField id="input" hintText="Search" style={{ marginLeft: 150 }} />
+        </form>
+        <RaisedButton label="Logout" onClick={this.handleLogout} />
+        {/* </ToolbarGroup> */}
+        {/* </Toolbar> */}
+      </AppBar>
     );
   }
 }

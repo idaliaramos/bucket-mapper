@@ -16,6 +16,7 @@ export default function getAdventureCards(destinationId) {
         console.log('not a 200');
         // throw new Error()
         // return;
+        //check
       } else {
         return response.json();
       }

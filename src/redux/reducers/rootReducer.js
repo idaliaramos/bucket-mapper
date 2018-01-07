@@ -14,7 +14,7 @@ export default function rootReducer(
         destination => destination.id === action.destination.id
       );
       return destination
-        ? currentState // TODO: Replace the existing destination instead of doing nothing!!!!
+        ? currentState
         : {
             ...currentState,
             destinationCards: [

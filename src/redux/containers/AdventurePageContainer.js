@@ -10,13 +10,13 @@ import getDestinationThunk from '../thunks/getDestinationThunk';
 
 function mapStateToProps(state, ownProps) {
   const { destinationId } = ownProps.match.params;
-  console.log(destinationId, 'this is the destinatinId');
   return {
     destinationId,
     destination: state.destinationCards.find(
       destination => destination.id === destinationId
     ),
     adventureCards: state.adventureCards,
+    destinationCards: state.destinationCards,
     onShow: state.onShow,
     fail: state.fail
   };
@@ -32,7 +32,7 @@ function mapDispatchToProps(dispatch, ownProps) {
         getDestinationThunk(destinationId, ownProps)
       ).then(destination => {
         //fail
-        console.log(destination, 'in page containter');
+        // console.log(destination, 'in page containter');
         dispatch(getAdventureCardsThunk(destination.id));
       }),
     //added destination Id

@@ -22,13 +22,10 @@ function mapDispatchToProps(dispatch, ownProps) {
   return {
     onMount: () => dispatch(getDestinationCardsThunk(ownProps)),
     //maybe not on mount, need t pass the id
-
     onSaveDestination: destination =>
       dispatch(createDestinationThunk(destination)),
     onUpdateDestination: (id, changes) => {
-      //console.log(changes, id, 'this is the change');
       dispatch(updateDestinationCardThunk(id, changes));
-      // //console.log('>>>', id, changes);
     },
     onDeleteDestination: id => dispatch(deleteDestinationCardThunk(id))
   };
