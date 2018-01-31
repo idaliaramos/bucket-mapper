@@ -12,7 +12,6 @@ export default class AdventurePage extends Component {
     adventureCardPage: true
   };
   render() {
-    console.log(this.props, 'these are the props');
     return (
       <div className="AdventurePage">
         <AdventurePageLayout>
@@ -20,6 +19,7 @@ export default class AdventurePage extends Component {
             onCreateTripData={this.props.onCreateTripData}
             onSearch={this._handleSearch}
             destinationCards={this.props.destinationCards}
+
             //check
           />
           {this.props.fail

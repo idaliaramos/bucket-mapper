@@ -54,7 +54,7 @@ export default class FormComponent extends Component {
       url: this.state.url,
       category: this.state.category
     };
-    console.log('i am in the handleClickOnSave');
+
     onSaveTripData(tripData);
     this.setState({
       location: '',
@@ -62,7 +62,6 @@ export default class FormComponent extends Component {
       description: '',
       category: ''
     });
-    // console.log(this.ste, 'this is the state');
   };
 
   _handleLocationChange = (event, value) => {
@@ -152,13 +151,13 @@ export default class FormComponent extends Component {
         {this.props.adventureCard
           ? <TextField
               id="description"
+              value={this.state.description}
               onChange={this._handleBodyChange}
               defaultValue={this.props.adventureCard.description}
               floatingLabelStyle={styles.floatingLabelStyle}
               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
               multiLine={true}
               rows={2}
-              value={this.state.description}
             />
           : <TextField
               id="description"

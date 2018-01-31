@@ -4,18 +4,9 @@ import TextField from 'material-ui/TextField';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-import {
-  Toolbar,
-  ToolbarGroup,
-  // ToolbarSeparator,
-  ToolbarTitle
-} from 'material-ui/Toolbar';
-import {
-  indigo50
-  // indigo800,
-  // purple700
-} from 'material-ui/styles/colors';
-
+import MenuItem from 'material-ui/MenuItem';
+import { ToolbarTitle } from 'material-ui/Toolbar';
+import { indigo50 } from 'material-ui/styles/colors';
 const barStyle = {
   display: 'block',
   marginLeft: 0,
@@ -30,15 +21,20 @@ export default class NavigationComponent extends React.Component {
     super(props);
     this.state = {
       value: 3,
-      destinationCard: this.props.destinationCards
+      destinationCards: this.props.destinationCards
     };
   }
 
   handleChange = (event, index, value) => this.setState({ value });
 
-  handleLogout = e => {
+  handleLogout = event => {
+    console.log(this.props.history, 'this is the props history');
     localStorage.removeItem('token');
     this.props.history.push('/login');
+  };
+  handlegotodest = event => {
+    event.preventDefault();
+    this.props.history.push('/destinations');
   };
 
   _handleSearch = event => {
@@ -49,35 +45,46 @@ export default class NavigationComponent extends React.Component {
   };
 
   render() {
-    console.log(this.props.destinationCards, 'this is the des card');
+    console.log(this.state, 'this is the state');
+
     //check props how can i set it for this one specifically in the state
-    let destinationCard =
-      Object.assign({}, ...this.props.destinationCards) || '';
+    // let destinationCard =
+    //   Object.assign({}, ...this.props.destinationCards) || '';
     return (
       <AppBar title="Bucket Mapper">
         {/* <Toolbar> */}
         {/* <ToolbarGroup> */}
         <Link to="/destinations">
-          {/* {this.props.destinaton.name
+          {/* {this.props.destinatonCards[0].name
               ? <RaisedButton label="Go To Destinations Board" primary={true} />
               : <RaisedButton label="Destinations Board" primary={true} />} */}
-          <RaisedButton label="Destinations" primary={true} />
+          <RaisedButton
+            label="Destinations"
+            primary={true}
+            // onClick={this.handlegotodest}
+          />
+          {/* <ToolbarTitle
+            text={
+              this.props.destinationCards.length > 0
+                ? this.props.destinationCards[0].name
+                : ''
+            }
+          /> */}
         </Link>
 
         <ToolbarTitle
-          title={
-            <span>
-              {/* {destinationCard.name} */}
-              Title
-            </span>
+          text={
+            this.props.destinationCards.length > 0
+              ? this.props.destinationCards[0].name
+              : ''
           }
           style={{ marginLeft: 500 }}
-          // text={destinationCard.name}
         />
         <form action="" onSubmit={this._handleSearch}>
           <TextField id="input" hintText="Search" style={{ marginLeft: 150 }} />
         </form>
-        <RaisedButton label="Logout" onClick={this.handleLogout} />
+        {/* <MenuItem label="Logout" onClick={this.handleLogout} /> */}
+        <FlatButton label="Logout" onClick={this.handleLogout} />
         {/* </ToolbarGroup> */}
         {/* </Toolbar> */}
       </AppBar>

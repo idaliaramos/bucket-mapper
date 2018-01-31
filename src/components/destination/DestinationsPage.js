@@ -5,7 +5,6 @@ import DestinationsPageLayout from './DestinationsPageLayout';
 import DestinationCard from './DestinationCard';
 
 export default function DestinationsPage(props) {
-  // debugger;
   return (
     <div className="DestinationsPage">
       <DestinationsPageLayout {...props}>
