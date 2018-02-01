@@ -7,6 +7,7 @@ import FlatButton from 'material-ui/FlatButton';
 import MenuItem from 'material-ui/MenuItem';
 import { ToolbarTitle } from 'material-ui/Toolbar';
 import { indigo50 } from 'material-ui/styles/colors';
+import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
 const barStyle = {
   display: 'block',
   marginLeft: 0,
@@ -51,16 +52,16 @@ export default class NavigationComponent extends React.Component {
     // let destinationCard =
     //   Object.assign({}, ...this.props.destinationCards) || '';
     return (
-      <AppBar title="Bucket Mapper">
+      <Toolbar title="B">
         {/* <Toolbar> */}
         {/* <ToolbarGroup> */}
         <Link to="/destinations">
           {/* {this.props.destinatonCards[0].name
               ? <RaisedButton label="Go To Destinations Board" primary={true} />
               : <RaisedButton label="Destinations Board" primary={true} />} */}
-          <RaisedButton
+          <FlatButton
             label="Destinations"
-            primary={true}
+            primary={false}
             // onClick={this.handlegotodest}
           />
           {/* <ToolbarTitle
@@ -71,23 +72,16 @@ export default class NavigationComponent extends React.Component {
             }
           /> */}
         </Link>
-
-        <ToolbarTitle
-          text={
-            this.props.destinationCards.length > 0
-              ? this.props.destinationCards[0].name
-              : ''
-          }
-          style={{ marginLeft: 500 }}
-        />
-        <form action="" onSubmit={this._handleSearch}>
+        <ToolbarTitle text="BucketMapper (Maui)" />
+        {/* //TODO:fix Search */}
+        {/* <form action="" onSubmit={this._handleSearch}>
           <TextField id="input" hintText="Search" style={{ marginLeft: 150 }} />
-        </form>
+        </form> */}
         {/* <MenuItem label="Logout" onClick={this.handleLogout} /> */}
         <FlatButton label="Logout" onClick={this.handleLogout} />
         {/* </ToolbarGroup> */}
         {/* </Toolbar> */}
-      </AppBar>
+      </Toolbar>
     );
   }
 }
