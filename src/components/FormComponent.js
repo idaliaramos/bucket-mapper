@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import TextField from 'material-ui/TextField';
-import { blue500 } from 'material-ui/styles/colors';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
+import React, { Component } from "react";
+import TextField from "material-ui/TextField";
+import { blue500 } from "material-ui/styles/colors";
+import SelectField from "material-ui/SelectField";
+import MenuItem from "material-ui/MenuItem";
 
-import FlatButton from 'material-ui/FlatButton';
+import FlatButton from "material-ui/FlatButton";
 
 const styles = {
   errorStyle: {
@@ -25,7 +25,7 @@ const style = {
   width: 300,
   margin: 0,
   // textAlign: 'center',
-  display: 'block'
+  display: "block"
 };
 
 export default class FormComponent extends Component {
@@ -39,10 +39,10 @@ export default class FormComponent extends Component {
     super(props);
 
     this.state = {
-      location: '',
-      url: '',
-      description: '',
-      category: ''
+      location: "",
+      url: "",
+      description: "",
+      category: ""
     };
   }
   _handleClickOnSave = event => {
@@ -57,10 +57,10 @@ export default class FormComponent extends Component {
 
     onSaveTripData(tripData);
     this.setState({
-      location: '',
-      url: '',
-      description: '',
-      category: ''
+      location: "",
+      url: "",
+      description: "",
+      category: ""
     });
   };
 
@@ -91,10 +91,10 @@ export default class FormComponent extends Component {
     };
     onUpdateTripData(id, tripData);
     this.setState({
-      location: '',
-      url: '',
-      description: '',
-      category: ''
+      location: "",
+      url: "",
+      description: "",
+      category: ""
     });
   };
   _onHandleCancel = event => {
@@ -112,7 +112,8 @@ export default class FormComponent extends Component {
           this.props.update === true
             ? this._handleClickOnUpdate
             : this._handleClickOnSave
-        }>
+        }
+      >
         {this.props.adventureCard
           ? <TextField
               id="location"
@@ -151,7 +152,6 @@ export default class FormComponent extends Component {
         {this.props.adventureCard
           ? <TextField
               id="description"
-              value={this.state.description}
               onChange={this._handleBodyChange}
               defaultValue={this.props.adventureCard.description}
               floatingLabelStyle={styles.floatingLabelStyle}
@@ -161,8 +161,8 @@ export default class FormComponent extends Component {
             />
           : <TextField
               id="description"
-              onChange={this._handleBodyChange}
               value={this.state.description}
+              onChange={this._handleBodyChange}
               //change
               floatingLabelText="Enter Description"
               floatingLabelStyle={styles.floatingLabelStyle}
@@ -173,7 +173,8 @@ export default class FormComponent extends Component {
           id="category"
           floatingLabelText="category"
           value={this.state.category}
-          onChange={this._handleCategoryChange}>
+          onChange={this._handleCategoryChange}
+        >
           <MenuItem value="food" primaryText="Food" />
           <MenuItem value="outdoors" primaryText="Outdoors" />
           <MenuItem value="exploration" primaryText="City Exploration" />
@@ -186,7 +187,7 @@ export default class FormComponent extends Component {
             ? <FlatButton
                 onSubmit={this._onHandleCancel}
                 type="submit"
-                label={this.props.update === true ? 'cancel' : null}
+                label={this.props.update === true ? "cancel" : null}
                 primary={true}
                 style={{ marginRight: 5 }}
               />
@@ -194,7 +195,7 @@ export default class FormComponent extends Component {
 
           <FlatButton
             type="submit"
-            label={this.props.update === true ? 'update' : 'save'}
+            label={this.props.update === true ? "update" : "save"}
             primary={true}
             // value="Reset"
           />

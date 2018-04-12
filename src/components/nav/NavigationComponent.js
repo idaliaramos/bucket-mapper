@@ -1,22 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import TextField from 'material-ui/TextField';
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
+//add search bar later
+// import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
-import MenuItem from 'material-ui/MenuItem';
 import { ToolbarTitle } from 'material-ui/Toolbar';
 import { indigo50 } from 'material-ui/styles/colors';
-import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
-const barStyle = {
-  display: 'block',
-  marginLeft: 0,
-  fill: indigo50,
-  height: 40,
-  width: 24,
-  userSelect: 'none',
-  color: indigo50
-};
+import { Toolbar } from 'material-ui/Toolbar';
+// const barStyle = {
+//   display: 'block',
+//   marginLeft: 0,
+//   fill: indigo50,
+//   height: 40,
+//   width: 24,
+//   userSelect: 'none',
+//   color: indigo50
+// };
 export default class NavigationComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -46,8 +44,6 @@ export default class NavigationComponent extends React.Component {
   };
 
   render() {
-    console.log(this.state, 'this is the state');
-
     //check props how can i set it for this one specifically in the state
     // let destinationCard =
     //   Object.assign({}, ...this.props.destinationCards) || '';
@@ -72,7 +68,7 @@ export default class NavigationComponent extends React.Component {
             }
           /> */}
         </Link>
-        <ToolbarTitle text="BucketMapper (Maui)" />
+        <ToolbarTitle text="BucketMapper" />
         {/* //TODO:fix Search */}
         {/* <form action="" onSubmit={this._handleSearch}>
           <TextField id="input" hintText="Search" style={{ marginLeft: 150 }} />

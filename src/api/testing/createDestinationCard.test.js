@@ -13,7 +13,6 @@ describe('createDestinationCard', () => {
         }
       })
     );
-    // const dest = 'kii';
 
     return createDestinationCard('kii', {
       AIRTABLE_DATABASE_ID: 'env.AIRTABLE_DATABASE_ID',

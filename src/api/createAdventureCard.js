@@ -23,26 +23,3 @@ export default function createAdventureCard(tripData, id) {
     return response.json();
   });
 }
-
-/*
-{
- id: 123213,
- name: 'adfadfd'
-}
-*/
-
-//
-// fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/cards', {
-//   method: 'POST',
-//   headers: {
-//     Authorization: 'Bearer key3qboRJqEMAfhtg',
-//     'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify({
-//     fields: {name: "Iceland"}
-//   })
-// })
-//  .then(response => response.json())
-//  .then(record => {
-//   console.log(record.fields.name);
-// });
