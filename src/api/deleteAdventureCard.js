@@ -6,7 +6,7 @@ export default function deleteAdventureCard(id) {
   //console.log(token, 'this is the token');
   return fetch(
     // `https://api.airtable.com/v0/appgZL4JHAEkVQWiM/adventures/${id}`,
-    `${process.env.REACT_APP_API_BASE_URL}/adventures/${id}`,
+    `${env.API_BASE_URL}/adventures/${id}`,
     {
       method: 'DELETE',
       headers: {

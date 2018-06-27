@@ -3,7 +3,7 @@ import decode from 'jwt-decode';
 export default function deleteCard(id) {
   const token = localStorage.getItem('token');
   const { sub: userId } = decode(token);
-  return fetch(`${process.env.REACT_APP_API_BASE_URL}/destinations/${id}`, {
+  return fetch(`${env.API_BASE_URL}/destinations/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
