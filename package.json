@@ -42,5 +42,8 @@
     "react-image-resizer": "^1.2.0",
     "react-test-renderer": "^15.6.2",
     "storybook-addon-material-ui": "^0.8.0"
+  },
+  "engines": {
+    "node": "v8.11.2"
   }
 }
