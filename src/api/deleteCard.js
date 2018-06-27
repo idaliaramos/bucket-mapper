@@ -1,4 +1,4 @@
-// import env from '../env';
+import env from '../env';
 import decode from 'jwt-decode';
 export default function deleteCard(id) {
   const token = localStorage.getItem('token');
