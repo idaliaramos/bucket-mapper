@@ -1,19 +1,19 @@
 // import recordToAdventureCard from './utils/recordToAdventureCard';
-import env from '../env';
+import env from "../env";
 export default function getAdventureCards(destinationId) {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
 
   return fetch(`${env.API_BASE_URL}/destinations/${destinationId}/adventures`, {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`
     }
   })
     .then(response => {
-      console.log(response.status, 'this is the resp on get adventureCards');
+      console.log(response.status, "this is the resp on get adventureCards");
       if (response.status !== 200 && response.status !== 201) {
         // return undefined;
-        console.log('not a 200');
+        console.log("not a 200");
         // throw new Error()
         // return;
         //check

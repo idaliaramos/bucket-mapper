@@ -1,12 +1,13 @@
-import env from '../env';
-import decode from 'jwt-decode';
+import env from "../env";
+import decode from "jwt-decode";
 export default function createDestinationCard(destination) {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   const { sub: userId } = decode(token);
+  console.log(env.API_BASE_URL, destination, userId, "loggin info");
   return fetch(`${env.API_BASE_URL}/users/${userId}/destinations`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`
     },
     body: JSON.stringify({
@@ -16,7 +17,7 @@ export default function createDestinationCard(destination) {
   })
     .then(response => response.json())
     .then(record => {
-      console.log(record, 'this is the record');
+      console.log(record, "this is the record");
       return record;
     });
 }
