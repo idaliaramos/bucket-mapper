@@ -1,48 +1,25 @@
-export default function createAdventureCard(tripData, { databaseId, token }) {
-  console.log(tripData);
-  return fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/cards', {
+import env from '../env';
+export default function createAdventureCard(tripData, id) {
+  const token = localStorage.getItem('token');
+  return fetch(`${env.API_BASE_URL}/destinations/${id}/adventures`, {
     method: 'POST',
     headers: {
-      Authorization: 'Bearer key3qboRJqEMAfhtg',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
     },
     body: JSON.stringify({
-      fields: tripData
+      // id: tripData.id,
+      location: tripData.location,
+      url: tripData.url,
+      // category: tripData.category,
+
+      // userId: tripData.userId,
+      description: tripData.description
+      // category: tripData.category
     })
-  })
-    .then(response => response.json())
-    .then(record => {
-      console.log(record);
-      return {
-        id: record.id,
-        location: record.fields.location,
-        catergory: record.fields.catergory,
-        image: record.fields.image,
-        body: record.fields.body
-      };
-    });
-  //or return the record, which is the nid and the name
-}
+  }).then(response => {
+    console.log(response.json, 'this is the response');
 
-/*
-{
- id: 123213,
- name: 'adfadfd'
+    return response.json();
+  });
 }
-*/
-
-//
-// fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/cards', {
-//   method: 'POST',
-//   headers: {
-//     Authorization: 'Bearer key3qboRJqEMAfhtg',
-//     'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify({
-//     fields: {name: "Iceland"}
-//   })
-// })
-//  .then(response => response.json())
-//  .then(record => {
-//   console.log(record.fields.name);
-// });

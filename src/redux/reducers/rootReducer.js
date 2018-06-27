@@ -2,7 +2,9 @@ export default function rootReducer(
   currentState = {
     destinationCards: [],
     adventureCards: [],
-    onShow: false
+    onShow: false,
+    userInfo: null,
+    fail: false
   },
   action
 ) {
@@ -12,7 +14,7 @@ export default function rootReducer(
         destination => destination.id === action.destination.id
       );
       return destination
-        ? currentState // TODO: Replace the existing destination instead of doing nothing!!!!
+        ? currentState
         : {
             ...currentState,
             destinationCards: [
@@ -20,6 +22,17 @@ export default function rootReducer(
               action.destination
             ]
           };
+
+    case 'GET_DESTINATION_FAILED':
+      return {
+        ...currentState,
+        fail: true
+      };
+    case 'GET_ADVENTURE_CARDS_FAILED':
+      return {
+        ...currentState,
+        fail: true
+      };
     case 'GET_DESTINATION_CARDS_COMPLETED':
       return {
         ...currentState,
@@ -50,6 +63,13 @@ export default function rootReducer(
           destinationCard => destinationCard.id !== action.id
         )
       };
+    case 'DELETE_ADVENTURE_CARD_COMPLETED':
+      return {
+        ...currentState,
+        adventureCards: currentState.adventureCards.filter(
+          adventureCard => adventureCard.id !== action.id
+        )
+      };
     case 'GET_ADVENTURE_CARDS_COMPLETED':
       return {
         ...currentState,
@@ -60,9 +80,16 @@ export default function rootReducer(
         ...currentState,
         adventureCards: [action.adventureCard, ...currentState.adventureCards]
       };
+    case 'CREATE_USER_COMPLETED':
+      return {
+        user: [action.user, ...currentState.user]
+      };
+    case 'LOGIN_USER_COMPLETED':
+      return {
+        userInfo: [action.userInfo, ...currentState.userInfo]
+      };
+
     case 'UPDATED_ADVENTURE_CARD_COMPLETED':
-      console.log(action, 'action');
-      console.log(currentState.adventureCards, 'ADVENTURE CARDS');
       return {
         ...currentState,
         adventureCards: currentState.adventureCards.map(
@@ -77,6 +104,7 @@ export default function rootReducer(
         ...currentState,
         onShow: true
       };
+
     default:
       return currentState;
   }

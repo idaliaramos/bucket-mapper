@@ -1,5 +1,6 @@
 swagger: '2.0'
 info:
+<<<<<<< HEAD
   title: 'Bucket Mapper'
   description: 'helping you visualize your bucket list so you can get out there and do it.'
 host: localhost:8000
@@ -41,11 +42,70 @@ paths:
         - name: 'status'
           in: 'query'
           description: 'to be considered by filter'
+=======
+  version: 0.0.0
+  title: BucketMapper API
+  description: >
+    making it easy for you to keep track of your bucketlist
+schemes:
+  - http
+  - https
+# securityDefinitions:
+#   Bearer:
+#     type: apiKey
+#     name: Authorization
+#     in: header
+paths:
+  /users:
+    post:
+      summary: "Creates a user"
+      produces:
+        - application/json
+      parameters:
+        - name: newUser
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/NewUser"
+      responses:
+        200:
+          description: OK
+          schema:
+              $ref: "#/definitions/User"
+        400:
+          description: All entries must be entered, password must be at least 8 characters
+  /login:
+    post:
+      summary: "Logs in a user"
+      produces:
+        - application/json
+      parameters:
+        - name: VerifyUser
+          in: body
+          required: true
+          schema:
+              $ref: "#/definitions/VerifyUser"
+      responses:
+        200:
+          description: OK
+        400:
+          description: Incorrect entry
+  /users/{id}:
+    get:
+      summary: "Retrieves a single user by Id"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to fetch
+>>>>>>> v2
           required: true
           type: integer
           format: int64
       responses:
         200:
+<<<<<<< HEAD
           description: "successful operation"
           schema:
             $ref: "#/definitions/users"
@@ -109,11 +169,98 @@ paths:
         - name: "destinationId"
           in: "path"
           description: "Id of the destination that needs to be updated"
+=======
+          description: OK
+          schema:
+              $ref: "#/definitions/UserId"
+        400:
+          description: All entries must be entered
+      # security:
+        # - api_key: []
+        # # - bearerAuth: []?????
+  /users/{id}/destinations:
+    post:
+      summary: "Creates a destination"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to fetch
           required: true
           type: integer
           format: int64
       responses:
         200:
+          description: OK
+          # schema:
+          #   type: array
+          #   items:
+          #     $ref: "#/definitions/DestinationArr"
+        400:
+          description: Bad Request
+      # security:
+      #   - api_key: []
+    get:
+      summary: "Retrieves an array of destinations"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to fetch
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/DestinationObj"
+        400:
+          description: Bad Request
+      # security:
+      #   - api_key: []
+  /destinations/{id}:
+    get:
+      summary: "Gets a destination by Id"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to fetch
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          # schema:
+          #   type: array
+          #   items:
+          #     $ref: "#/definitions/DestinationArr"
+        400:
+          description: Bad Request
+      # security:
+      #   - api_key: []
+    patch:
+      summary: "Updates a destination by Id"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to fetch
+>>>>>>> v2
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+<<<<<<< HEAD
           description: "Successful operation"
           schema:
             $ref: "#/definitions/destinations"
@@ -153,3 +300,244 @@ paths:
       - bucketMapper_store_auth:
         - "write:destination"
         - "read:destination"
+=======
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/DestinationObj"
+        400:
+          description: Bad Request
+      # security:
+        # - api_key: []
+        # # - bearerAuth: []?????
+    delete:
+      summary: "Deletes a destination"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to fetch
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/DestinationObj"
+        400:
+          description: Bad Request
+        # security:
+        # - api_key: []
+        # # - bearerAuth: []?????
+  /destinations/{id}/adventures:
+    post:
+      summary: "Creates an adventure"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to fetch
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/AdventureObj"
+        400:
+          description: Bad Request
+      # security:
+      #   - api_key: []
+    get:
+      summary: "Retrieves an array of adventures"
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to fetch
+          required: true
+          type: integer
+          format: int64
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          # schema:
+          #   type: array
+          #   items:
+          #     $ref: "#/definitions/DestinationArr"
+        400:
+          description: Bad Request
+      # security:
+      #   - api_key: []
+  /adventures/{id}:
+    get:
+      summary: "Gets an adventure by Id"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to fetch
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/AdventureArr"
+        400:
+          description: Bad Request
+      # security:
+      #   - api_key: []
+    patch:
+      summary: "Updates a adventure by Id"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to fetch
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+              $ref: "#/definitions/AdventureObj"
+        400:
+          description: Bad Request
+      # security:
+      #   - api_key: []
+      #   # - bearerAuth: []?????
+    delete:
+      summary: "Deletes a adventure"
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to fetch
+          required: true
+          type: integer
+          format: int64
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+              $ref: "#/definitions/AdventureObj"
+        400:
+          description: Bad Request
+        # security:
+        # - api_key: []
+        # # - bearerAuth: []?????
+
+definitions:
+  User:
+    type: object
+    properties:
+      username:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+  NewUser:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      username:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+  UserId:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      username:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+  # DestinationArr:
+  #   type: array
+  #   properties:
+  #     id:
+  #       type: integer
+  #       format: int64
+  #     name:
+  #       type: string
+  #     url:
+  #       type: string
+  DestinationObj:
+    type: object
+    properties:
+      # id:
+      #   type: integer
+      #   format: int64
+      name:
+        type: string
+      url:
+        type: string
+  AdventureObj:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+      description:
+        type: string
+      url:
+        type: string
+      location:
+        type: string
+      tag:
+        type: string
+  VerifyUser:
+    type: object
+    properties:
+      username:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+  AdventureArr:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+      description:
+        type: string
+      url:
+        type: string
+      location:
+        type: string
+      tag:
+        type: string
+>>>>>>> v2

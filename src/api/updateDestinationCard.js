@@ -1,25 +1,22 @@
 // import recordToAdventureCard from './utils/recordToAdventureCard';
-
-export default function updateDestinaCard(id, changes, { databaseId, token }) {
-  return fetch(
-    `https://api.airtable.com/v0/appgZL4JHAEkVQWiM/adventureBoard/${id}`,
-    {
-      method: 'PATCH',
-      headers: {
-        Authorization: 'Bearer key3qboRJqEMAfhtg',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        fields: changes
-      })
-    }
-  )
-    .then(response => response.json())
-    .then(record => {
-      // console.log(record, 'thisrecord');
-      return {
-        id: record.id,
-        name: record.fields.name
-      };
-    });
+import env from '../env';
+export default function updateDestinationCard(id, changes) {
+  //console.log(changes, 'changes');
+  const token = localStorage.getItem('token');
+  console.log(token, 'this is the token');
+  console.log(id, 'this is the id');
+  return fetch(`${env.API_BASE_URL}/destinations/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify(changes)
+  })
+    .then(response => {
+      //fix
+      console.log(response, 'this is the response');
+      return response.json();
+    })
+    .catch(error => console.log(error));
 }

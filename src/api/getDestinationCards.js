@@ -1,35 +1,21 @@
 // import recordToDestinationCard from './utils/recordToDestinationCard';
-
+import env from '../env';
+import decode from 'jwt-decode';
 export default function getDestinationCards() {
-  return fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinations', {
+  const token = localStorage.getItem('token');
+  const { sub: userId } = decode(token);
+  //console.log(token, 'this is the token');
+  //console.log('hi', env.API_BASE_URL);
+  return fetch(`${env.API_BASE_URL}/users/${userId}/destinations`, {
     headers: {
-      Authorization: 'Bearer key3qboRJqEMAfhtg'
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
     }
-  })
-    .then(response => response.json())
-    .then(destinationCards => {
-      return destinationCards.records.map(destinationCard => {
-        return {
-          id: destinationCard.id,
-          nid: destinationCard.fields.nid,
-          card: destinationCard.fields.cards,
-          name: destinationCard.fields.name
-        };
-      });
-    });
+  }).then(response => {
+    if (response.status === 401) {
+      throw new Error('Authentication Error');
+    }
+    //console.log(response, 'this is the resonse');
+    return response.json();
+  });
 }
-
-// fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinations', {
-//   headers: {
-//     Authorization: 'Bearer key3qboRJqEMAfhtg'
-//   }
-// })
-//   .then(response => response.json())
-//   .then(data => console.log(data));
-
-// fetch("https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinations?", {
-//     headers: {
-//       Authorization: "Bearer key3qboRJqEMAfhtg"
-//     }
-//   })
-//     .then(response => response.json()).then(data => console.log(data))

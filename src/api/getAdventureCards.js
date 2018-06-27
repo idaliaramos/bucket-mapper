@@ -1,23 +1,44 @@
-export default function getAdventureCards(destinationNid) {
-  const filter = destinationNid
-    ? `?filterByFormula=(%7Bdestination%7D%3D%27${destinationNid}%27)`
-    : '';
+// import recordToAdventureCard from './utils/recordToAdventureCard';
+import env from "../env";
+export default function getAdventureCards(destinationId) {
+  const token = localStorage.getItem("token");
 
-  return fetch(`https://api.airtable.com/v0/appgZL4JHAEkVQWiM/cards${filter}`, {
+  return fetch(`${env.API_BASE_URL}/destinations/${destinationId}/adventures`, {
     headers: {
-      Authorization: 'Bearer key3qboRJqEMAfhtg'
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
     }
   })
-    .then(response => response.json())
+    .then(response => {
+      console.log(response.status, "this is the resp on get adventureCards");
+      if (response.status !== 200 && response.status !== 201) {
+        // return undefined;
+        console.log("not a 200");
+        // throw new Error()
+        // return;
+        //check
+      } else {
+        return response.json();
+      }
+    })
     .then(adventureCards => {
-      return adventureCards.records.map(adventureCard => {
+      // if (!adventureCards) {
+      //   console.log('there are no adventureCards');
+      //   // throw new Error();
+      // }
+      console.log(adventureCards);
+      return adventureCards.map(adventureCard => {
         return {
           id: adventureCard.id,
-          category: adventureCard.fields.category,
-          body: adventureCard.fields.body,
-          location: adventureCard.fields.location,
-          image: adventureCard.fields.image
+          category: adventureCard.category,
+          name: adventureCard.name,
+          description: adventureCard.description,
+          location: adventureCard.location,
+          url: adventureCard.url
         };
       });
     });
+  // .catch(error){
+  //
+  // };
 }

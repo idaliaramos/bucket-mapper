@@ -1,10 +1,8 @@
 import React from 'react';
-import ReactCardFlip from 'react-card-flip';
 import FormComponent from '../FormComponent';
 import {
   Card,
   CardActions,
-  CardHeader,
   CardMedia,
   CardTitle,
   CardText
@@ -13,8 +11,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
-import FlatButton from 'material-ui/FlatButton';
+var travel = require('./travel.jpg');
 
 //
 const style = {
@@ -23,6 +20,9 @@ const style = {
   textAlign: 'center',
   display: 'block'
 };
+// display: 'block',
+//  width: '30vw',
+//  transitionDuration: '0.3s',
 
 export default class AdventureCard extends React.Component {
   static defaultProps = {
@@ -35,19 +35,14 @@ export default class AdventureCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFlipped: false
+      editMode: false
     };
-    // this.handleClick = this.handleClick.bind(this);
   }
-  //fuction handle update trip data
 
-  // this.props.onUpdateTripData ( trip data)
   render() {
-    console.log(this.props, 'PROPSssss');
-    const adventureCard = this.props.adventureCard;
     return (
-      // <ReactCardFlip isFlipped={this.state.isFlipped}>
       <div>
+        {/* this.props.fail ? ownProps.history.push('/') : ever */}
         <Card style={style}>
           {this.state.editMode === true
             ? this._renderEditMode()
@@ -57,86 +52,45 @@ export default class AdventureCard extends React.Component {
             : this._renderDisplayMode()} */}
         </Card>
       </div>
-      // </ReactCardFlip>
     );
   }
 
+  updateTripData = (...args) => {
+    this.props.onUpdateTripData(...args);
+    this.state = {
+      editMode: false
+    };
+  };
+  onCancel = () => {
+    this.state = {
+      editMode: false
+    };
+  };
   _renderEditMode() {
-    const adventureCard = this.props.adventureCard;
     return (
       <FormComponent
         style={style}
-        onUpdateTripData={this.props.onUpdateTripData}
+        onUpdateTripData={this.updateTripData}
         update={true}
         adventureCard={this.props.adventureCard}
         onShow={this.props.onShow}
       />
-      // <div>
-      //   <div>
-      //     <CardMedia
-      //       overlay={
-      //         <CardTitle>
-      //           <input
-      //             ref="location"
-      //             type="text"
-      //             defaultValue={adventureCard.location}
-      //           />
-      //         </CardTitle>
-      //       }>
-      //       <img src={adventureCard.image} alt="" />
-      //     </CardMedia>
-      //   </div>
-      //   <div>
-      //     <CardText>
-      //       <input ref="name" type="text" defaultValue={adventureCard.body} />
-      //       {/* ref="title" type="text">
-      //       {adventureCard.body} */}
-      //     </CardText>
-      //   </div>
-      //   <div>
-      //     <CardActions>
-      //       <FlatButton onClick={this._handleClickonUpdate} label="Save" />
-      //     </CardActions>
-      //   </div>
-      // </div>
     );
   }
-  //possibly use this for second part
-  // _handleClickOnUpdate = event => {
-  //   event.preventDefault();
-  //
-  //   let $form = event.target;
-  //   console.log($form);
-  //   let location = $form.activityName.value;
-  //   let body = $form.description.value;
-  //   let url = $form.url.value;
-  //   let id = this.props.adventureCard.id;
-  //   const { onUpdateTripData } = this.props;
-  //   let tripData = { body: body, location: location, image: url };
-  //   onUpdateTripData(id, tripData);
-  // };
-
   _handleClickSaveButton = event => {
-    console.log(this.refs.nameInput, 'HANDLC');
-    // console.log(this.refs.nameInput.value, '<<<<<<');
     this.props.onUpdateAdventureCard(this.props.adventureCard.id, {
-      // image: this.refs.url.value,
-      // location: this.refs.location.value,
-      // body: this.refs.location.value
-      image: this.props.adventureCard.url,
+      url: this.refs.url.value,
       location: this.refs.location.value,
-      body: this.refs.location.value
+      description: this.refs.description.value
     });
     this.setState({
       editMode: false
     });
   };
   _handleEditClick = event => {
-    console.log('i clicked the edit');
     this.setState({
       editMode: true
     });
-    // this.props.onShowAdventureCard();
   };
   _handleClickDelete = event => {
     this.props.onDeleteAdventureCard(this.props.adventureCard.id);
@@ -149,14 +103,18 @@ export default class AdventureCard extends React.Component {
         <Card id={adventureCard.id}>
           <CardMedia
             overlay={<CardTitle title={adventureCard.location} subtitle="" />}>
-            <img src={adventureCard.image} alt="" />
+            <img
+              src={adventureCard.url ? adventureCard.url : travel}
+              alt=""
+              width={240}
+              height={240}
+            />
           </CardMedia>
 
           <CardText>
-            {adventureCard.body}
+            {adventureCard.description}
           </CardText>
           <CardActions>
-            {/* <FlatButton onClick={this._handleEditClick} label="Edit" /> */}
             <div>
               <IconMenu
                 iconButtonElement={
@@ -179,60 +137,3 @@ export default class AdventureCard extends React.Component {
     );
   }
 }
-
-// import React from 'react';
-// import FormComponent from '../FormComponent';
-// import {
-//   Card,
-//   CardActions,
-//   CardHeader,
-//   CardMedia,
-//   CardTitle,
-//   CardText
-// } from 'material-ui/Card';
-//
-// import FlatButton from 'material-ui/FlatButton';
-//
-// //
-// const style = {
-//   width: 300,
-//   margin: 20,
-//   textAlign: 'center',
-//   display: 'block'
-// };
-//
-// export default class AdventureCard extends React.Component {
-//   static defaultProps = {
-//     onEditAdventureCard: () => {}
-//   };
-//
-//   constructor(props) {
-//     super(props);
-//     this.state = {};
-//   }
-//
-//   render() {
-//     const adventureCard = this.props.adventureCard;
-//     return (
-//       <Card style={style}>
-//         <CardMedia
-//           overlay={<CardTitle title={adventureCard.location} subtitle="" />}>
-//           <img src={adventureCard.image} alt="" />
-//         </CardMedia>
-//         {/* <CardTitle title="" subtitle="" /> */}
-//         <CardText>
-//           {adventureCard.body}
-//         </CardText>
-//         <CardActions>
-//           <FlatButton onClick={this._handleClickEdit} label="Edit" />
-//         </CardActions>
-//       </Card>
-//     );
-//   }
-//
-//   _handleClickEdit = event => {
-//     event.preventDefault();
-//     console.log('in the edit adv card');
-//     this.props.onEditAdventureCard(this.adventureCard.id);
-//   };
-// }

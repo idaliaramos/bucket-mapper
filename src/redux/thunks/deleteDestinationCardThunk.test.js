@@ -2,8 +2,8 @@
 
 import deleteDestinationCardThunk from './deleteDestinationCardThunk';
 
-jest.mock('../../api/deleteDestinationCard');
-import deleteDestinationCard from '../../api/deleteDestinationCard';
+jest.mock('../../api/deleteCard');
+import deleteCard from '../../api/deleteCard';
 
 import data from '../../mock-data';
 
@@ -12,16 +12,16 @@ describe('deleteDestinationCardProcess', () => {
     const thunk = deleteDestinationCardThunk(data.destinationCards[0].id);
     expect(typeof thunk).toBe('function');
 
-    deleteDestinationCard.mockReturnValueOnce(Promise.resolve());
+    deleteCard.mockReturnValueOnce(Promise.resolve());
 
     const dispatch = jest.fn();
     const getState = () => ({});
 
     return thunk(dispatch, getState, {}).then(() => {
-      expect(deleteDestinationCard).toBeCalled();
+      expect(deleteCard).toBeCalled();
       expect(dispatch).toBeCalledWith({
         type: 'DELETE_DESTINATION_CARD_COMPLETED',
-        destinationCardId: data.destinationCards[0].id
+        id: data.destinationCards[0].id
       });
     });
   });

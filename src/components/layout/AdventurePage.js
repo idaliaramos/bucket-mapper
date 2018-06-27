@@ -1,50 +1,73 @@
-import React from 'react';
+import React, { Component } from 'react';
 import AdventurePageLayout from '../layout/AdventurePageLayout';
-import DestinationFormComponent from '../destination/DestinationFormComponent';
+// import DestinationFormComponent from '../destination/DestinationFormComponent';
 import AdventureCard from '../adventureboard/AdventureCard';
-import ListCard from '../adventureboard/ListCard';
+
 import FormComponent from '../FormComponent';
 import NavigationComponent from '../nav/NavigationComponent';
 
-export default function AdventurePage(props) {
-  console.log(props, 'props in adventure page');
-  function handleSaveTripData(tripData) {
-    props.onCreateTripData({
-      ...tripData,
-      destination: [props.destination.id]
-    });
+export default class AdventurePage extends Component {
+  state = {
+    filterTerm: '',
+    adventureCardPage: true
+  };
+  render() {
+    return (
+      <div className="AdventurePage">
+        <AdventurePageLayout>
+          <NavigationComponent
+            onCreateTripData={this.props.onCreateTripData}
+            onSearch={this._handleSearch}
+            destinationCards={this.props.destinationCards}
+
+            //check
+          />
+          {this.props.fail
+            ? this.props.history.push('/destinations')
+            : <FormComponent
+                onSaveTripData={this._handleSaveTripData}
+                onChange={this.props.onChange}
+              />}
+          {this.props.adventureCards &&
+            this.props.adventureCards
+              .filter(adventureCard => {
+                return this.state.filterTerm !== ''
+                  ? adventureCard.category
+                    ? adventureCard.category.includes(this.state.filterTerm) ||
+                      adventureCard.description.includes(
+                        this.state.filterTerm
+                      ) ||
+                      adventureCard.location.includes(this.state.filterTerm)
+                    : false
+                  : true;
+              })
+              .map(adventureCard =>
+                <AdventureCard
+                  key={adventureCard.id}
+                  adventureCard={adventureCard}
+                  onUpdateTripData={this.props.onUpdateTripData}
+                  onUpdateAdventureCard={this.props.onUpdateAdventureCard}
+                  onDeleteAdventureCard={this.props.onDeleteAdventureCard}
+                  onShowAdventureCard={this.props.onShowAdventureCard}
+                  onShow={this.props.onShow}
+                  onChange={this.props.onChange}
+                  //fail={this.props.fail}
+                />
+              )}
+        </AdventurePageLayout>
+      </div>
+    );
   }
 
-  return (
-    <div className="AdventurePage">
-      <AdventurePageLayout>
-        {/* <NavigationComponent onCreateTripData={props.onCreateTripData} /> */}
-        <FormComponent onSaveTripData={handleSaveTripData} />
-        {props.adventureCards &&
-          props.adventureCards.map(adventureCard =>
-            <AdventureCard
-              key={adventureCard.id}
-              adventureCard={adventureCard}
-              onUpdateTripData={props.onUpdateTripData}
-              onUpdateAdventureCard={props.onUpdateAdventureCard}
-              onDeleteAdventureCard={props.onDeleteAdventureCard}
-              onShowAdventureCard={props.onShowAdventureCard}
-              onShow={props.onShow}
-            />
-          )}
-      </AdventurePageLayout>
-    </div>
-  );
+  _handleSaveTripData = tripData => {
+    console.log(tripData, 'this is the trip data');
+    console.log(this.props, 'this is the destination');
+    this.props.onCreateTripData(tripData, this.props.destinationId);
+  };
+
+  _handleSearch = filterTerm => {
+    this.setState({
+      filterTerm
+    });
+  };
 }
-// import {
-//   Card,
-//   CardActions,
-//   CardHeader,
-//   CardMedia,
-//   CardTitle,
-//   CardText
-// } from 'material-ui/Card';
-// import TextField from 'material-ui/TextField';
-// import { orange500, blue500 } from 'material-ui/styles/colors';
-// import FlatButton from 'material-ui/FlatButton';
-// import RaisedButton from 'material-ui/RaisedButton';

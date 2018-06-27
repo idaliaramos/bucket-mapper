@@ -1,51 +1,23 @@
-import recordToDestinationCard from './utils/recordToDestinationCard';
-
-export default function createDestinationCard(
-  destination,
-  { databaseId, token }
-) {
-  return fetch(
-    'https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinations',
-    {
-      method: 'POST',
-      headers: {
-        Authorization: 'Bearer key3qboRJqEMAfhtg',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        fields: destination
-      })
-    }
-  )
+import env from "../env";
+import decode from "jwt-decode";
+export default function createDestinationCard(destination) {
+  const token = localStorage.getItem("token");
+  const { sub: userId } = decode(token);
+  console.log(env.API_BASE_URL, destination, userId, "loggin info");
+  return fetch(`${env.API_BASE_URL}/users/${userId}/destinations`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      name: destination.name,
+      url: destination.url
+    })
+  })
     .then(response => response.json())
     .then(record => {
-      return {
-        id: record.id,
-        name: record.fields.name
-      };
+      console.log(record, "this is the record");
+      return record;
     });
-  //or return the record, which is the nid and the name
 }
-
-/*
-{
- id: 123213,
- name: 'adfadfd'
-}
-*/
-
-//
-// fetch('https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinations', {
-//   method: 'POST',
-//   headers: {
-//     Authorization: 'Bearer key3qboRJqEMAfhtg',
-//     'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify({
-//     fields: {name: "Iceland"}
-//   })
-// })
-//  .then(response => response.json())
-//  .then(record => {
-//   console.log(record.fields.name);
-// });
