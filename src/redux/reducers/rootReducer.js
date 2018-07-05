@@ -47,6 +47,7 @@ export default function rootReducer(
         ]
       };
     case 'UPDATED_DESTINATION_CARD_COMPLETED':
+    console.log(currentState, 'currentState')
       return {
         ...currentState,
         destinationCards: currentState.destinationCards.map(

@@ -12,7 +12,6 @@ export default function createAdventureCard(tripData, id) {
       location: tripData.location,
       url: tripData.url,
       // category: tripData.category,
-
       // userId: tripData.userId,
       description: tripData.description
       // category: tripData.category
