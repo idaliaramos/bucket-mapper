@@ -27,7 +27,7 @@ export default class NavigationComponent extends React.Component {
   handleChange = (event, index, value) => this.setState({ value });
 
   handleLogout = event => {
-    console.log(this.props.history, 'this is the props history');
+    console.log(this.props, 'this is the props history');
     localStorage.removeItem('token');
     this.props.history.push('/login');
   };

@@ -14,14 +14,14 @@ export default class AdventurePage extends Component {
   render() {
     return (
       <div className="AdventurePage">
-        <AdventurePageLayout>
-          <NavigationComponent
+        <AdventurePageLayout {...this.props}>
+          {/* <NavigationComponent
             onCreateTripData={this.props.onCreateTripData}
             onSearch={this._handleSearch}
             destinationCards={this.props.destinationCards}
 
             //check
-          />
+          /> */}
           {this.props.fail
             ? this.props.history.push('/destinations')
             : <FormComponent

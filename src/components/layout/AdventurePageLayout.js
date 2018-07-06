@@ -1,7 +1,7 @@
 import React from 'react';
-// import NavigationComponent from '../nav/NavigationComponent';
+ import NavigationComponent from '../nav/NavigationComponent';
 
-export default function AdventurePageLayout(props) {
+export default function AdventurePageLayout(prop) {
   const style = {
     display: 'flex',
     flexDirection: 'row',
@@ -10,11 +10,11 @@ export default function AdventurePageLayout(props) {
 
   return (
     <div>
-      {props.children[0]}
+      <NavigationComponent {...prop} />
       <div style={style}>
-        {props.children[1]}
-        {props.children[2]}
-        {props.children[3]}
+        {prop.children[0]}
+        {prop.children[1]}
+        {prop.children[2]}
       </div>
     </div>
   );

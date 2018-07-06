@@ -49,5 +49,5 @@ const addLifecycle = lifecycle({
     console.log('i am in the login page');
   }
 });
-
-export default connectToStore(addLifecycle(LoginPage));
+export default compose(connectToStore, addLifecycle)(LoginPage);
+// export default connectToStore(addLifecycle(LoginPage));
