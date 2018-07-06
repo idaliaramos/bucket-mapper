@@ -12,10 +12,10 @@ export default class LoginPage extends Component {
   render() {
     return (
       <div className="LoginPage">
-        <DefaultPageLayout title="Login">
+        {/* <DefaultPageLayout title="Login"> */}
           {/* {this._renderIfError()} */}
           <LoginForm onLogin={this.props.onLogin} />
-        </DefaultPageLayout>
+        {/* </DefaultPageLayout> */}
       </div>
     );
   }
