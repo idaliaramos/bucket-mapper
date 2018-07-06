@@ -11,9 +11,9 @@ export default class RegisterPage extends Component {
   render() {
     return (
       <div className="RegisterPage">
-        <DefaultPageLayout title="Account Registration">
+        {/* <DefaultPageLayout title="Account Registration"> */}
           <RegisterForm onCreateUser={this.props.onCreateUser} />
-        </DefaultPageLayout>
+        {/* </DefaultPageLayout> */}
       </div>
     );
   }
