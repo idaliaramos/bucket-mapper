@@ -6,7 +6,9 @@ import FlatButton from 'material-ui/FlatButton';
 import { ToolbarTitle } from 'material-ui/Toolbar';
 import { indigo50 } from 'material-ui/styles/colors';
 import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
-import {Navbar, NavItem} from 'material-ui/Nav'
+
+import {Navbar, NavItem} from 'react-materialize'
+
 export default class NavigationComponent extends React.Component {
   constructor(props) {
     super(props);
