@@ -5,16 +5,8 @@ import { Link } from 'react-router-dom';
 import FlatButton from 'material-ui/FlatButton';
 import { ToolbarTitle } from 'material-ui/Toolbar';
 import { indigo50 } from 'material-ui/styles/colors';
-import { Toolbar } from 'material-ui/Toolbar';
-// const barStyle = {
-//   display: 'block',
-//   marginLeft: 0,
-//   fill: indigo50,
-//   height: 40,
-//   width: 24,
-//   userSelect: 'none',
-//   color: indigo50
-// };
+import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
+import {Navbar, NavItem} from 'material-ui/Nav'
 export default class NavigationComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -48,36 +40,41 @@ export default class NavigationComponent extends React.Component {
     // let destinationCard =
     //   Object.assign({}, ...this.props.destinationCards) || '';
     return (
-      <Toolbar title="B">
-        {/* <Toolbar> */}
-        {/* <ToolbarGroup> */}
-        <Link to="/destinations">
-          {/* {this.props.destinatonCards[0].name
-              ? <RaisedButton label="Go To Destinations Board" primary={true} />
-              : <RaisedButton label="Destinations Board" primary={true} />} */}
-          <FlatButton
-            label="Destinations"
-            primary={false}
-            // onClick={this.handlegotodest}
-          />
-          {/* <ToolbarTitle
-            text={
-              this.props.destinationCards.length > 0
-                ? this.props.destinationCards[0].name
-                : ''
-            }
-          /> */}
-        </Link>
-        <ToolbarTitle text="BucketMapper" />
-        {/* //TODO:fix Search */}
-        {/* <form action="" onSubmit={this._handleSearch}>
-          <TextField id="input" hintText="Search" style={{ marginLeft: 150 }} />
-        </form> */}
-        {/* <MenuItem label="Logout" onClick={this.handleLogout} /> */}
-        <FlatButton label="Logout" onClick={this.handleLogout} />
-        {/* </ToolbarGroup> */}
-        {/* </Toolbar> */}
-      </Toolbar>
+
+      <Navbar brand='logo' right>
+  <NavItem onClick={() => console.log('test click')}>Getting started</NavItem>
+  <NavItem href='components.html'>Components</NavItem>
+</Navbar>
+      // <Toolbar title="B">
+      //
+      //    {/* <ToolbarGroup> */}
+      //   <Link to="/destinations">
+      //     {/* {this.props.destinatonCards[0].name
+      //         ? <RaisedButton label="Go To Destinations Board" primary={true} />
+      //         : <RaisedButton label="Destinations Board" primary={true} />} */}
+      //     <FlatButton
+      //       label="Destinations"
+      //       primary={false}
+      //       // onClick={this.handlegotodest}
+      //     />
+      //     {/* <ToolbarTitle
+      //       text={
+      //         this.props.destinationCards.length > 0
+      //           ? this.props.destinationCards[0].name
+      //           : ''
+      //       }
+      //     /> */}
+      //   </Link>
+      //   <ToolbarTitle text="BucketMapper" />
+      //   {/* //TODO:fix Search */}
+      //   {/* <form action="" onSubmit={this._handleSearch}>
+      //     <TextField id="input" hintText="Search" style={{ marginLeft: 150 }} />
+      //   </form> */}
+      //   {/* <MenuItem label="Logout" onClick={this.handleLogout} /> */}
+      //   <FlatButton label="Logout" onClick={this.handleLogout} />
+      //   {/* </ToolbarGroup> */}
+      //
+      // </Toolbar>
     );
   }
 }

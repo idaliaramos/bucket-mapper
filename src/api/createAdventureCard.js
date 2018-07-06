@@ -8,11 +8,8 @@ export default function createAdventureCard(tripData, id) {
       Authorization: `Bearer ${token}`
     },
     body: JSON.stringify({
-      // id: tripData.id,
       location: tripData.location,
       url: tripData.url,
-      // category: tripData.category,
-      // userId: tripData.userId,
       description: tripData.description
       // category: tripData.category
     })

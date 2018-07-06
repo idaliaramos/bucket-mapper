@@ -76,12 +76,6 @@ class Register extends Component {
         </form>
 
         <div> Already a user?</div>
-        {/* <RaisedButton
-          type="onClick"
-          label="LogIn"
-          primary={false}
-          style={style}
-        /> */}
         <span className="input-group-btn">
           <Link to="/login">Click to login</Link>
         </span>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import Paper from 'material-ui/Paper';
-// import InputComponent from '../InputComponent';
+
 import TextField from 'material-ui/TextField';
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -46,7 +45,6 @@ export default class DestinationFormComponent extends Component {
     document.form.reset();
   };
   render() {
-    // console.log('this is in form componenet', destinationCar);
     return (
       <form name="form" style={style}>
         <TextField
@@ -70,4 +68,3 @@ export default class DestinationFormComponent extends Component {
     );
   }
 }
-// export default DestinationFormComponent;

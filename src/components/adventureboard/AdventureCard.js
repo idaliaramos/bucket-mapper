@@ -20,10 +20,6 @@ const style = {
   textAlign: 'center',
   display: 'block'
 };
-// display: 'block',
-//  width: '30vw',
-//  transitionDuration: '0.3s',
-
 export default class AdventureCard extends React.Component {
   static defaultProps = {
     onEditAdventureCard: () => {},
@@ -47,9 +43,6 @@ export default class AdventureCard extends React.Component {
           {this.state.editMode === true
             ? this._renderEditMode()
             : this._renderDisplayMode()}
-          {/* {this.props.onShow === true
-            ? this._renderEditMode()
-            : this._renderDisplayMode()} */}
         </Card>
       </div>
     );
