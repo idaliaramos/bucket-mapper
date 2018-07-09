@@ -15,13 +15,6 @@ export default class AdventurePage extends Component {
     return (
       <div className="AdventurePage">
         <AdventurePageLayout {...this.props}>
-          {/* <NavigationComponent
-            onCreateTripData={this.props.onCreateTripData}
-            onSearch={this._handleSearch}
-            destinationCards={this.props.destinationCards}
-
-            //check
-          /> */}
           {this.props.fail
             ? this.props.history.push('/destinations')
             : <FormComponent

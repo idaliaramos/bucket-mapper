@@ -23,7 +23,7 @@ const styles = {
 const style = {
   // height: 100,
   width: 300,
-  margin: 0,
+  margin: 20,
   // textAlign: 'center',
   display: "block"
 };
