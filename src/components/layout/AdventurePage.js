@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import AdventurePageLayout from '../layout/AdventurePageLayout';
-// import DestinationFormComponent from '../destination/DestinationFormComponent';
 import AdventureCard from '../adventureboard/AdventureCard';
-
 import FormComponent from '../FormComponent';
-import NavigationComponent from '../nav/NavigationComponent';
+
 
 export default class AdventurePage extends Component {
   state = {

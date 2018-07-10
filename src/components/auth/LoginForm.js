@@ -60,18 +60,15 @@ class LoginForm extends Component {
     );
   }
 
+
   _handleClickOnSubmit = event => {
     event.preventDefault();
     var email = document.login.email.value.trim();
     var password = document.login.password.value.trim();
-
-    //
-    // const { onSubmit} = this.props;
     let userInfo = {
       email: email,
       password: password
     };
-    console.log(userInfo);
     this.props.onLogin(userInfo);
   };
 }

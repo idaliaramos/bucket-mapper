@@ -14,8 +14,6 @@ export default function createAdventureCard(tripData, id) {
       // category: tripData.category
     })
   }).then(response => {
-    console.log(response.json, 'this is the response');
-
     return response.json();
   });
 }
