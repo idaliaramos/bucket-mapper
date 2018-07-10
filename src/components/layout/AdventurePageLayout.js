@@ -16,7 +16,6 @@ export default function AdventurePageLayout(prop) {
   //   // textAlign: 'center',
   //   display: "block"
   // }
-
   return (
     <div>
       <NavigationComponent {...prop} />
