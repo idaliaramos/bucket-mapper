@@ -1,12 +1,12 @@
-import env from '../env';
-import decode from 'jwt-decode';
+import env from "../env";
+import decode from "jwt-decode";
 export default function deleteCard(id) {
-  const token = localStorage.getItem('token');
-  const { sub: userId } = decode(token);
+  const token = localStorage.getItem("token");
+  // const { sub: userId } = decode(token);
   return fetch(`${env.API_BASE_URL}/destinations/${id}`, {
-    method: 'DELETE',
+    method: "DELETE",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`
     },
     body: JSON.stringify()

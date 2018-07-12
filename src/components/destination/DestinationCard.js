@@ -1,8 +1,6 @@
 import React from "react";
-import TextField from "material-ui/TextField";
 import FlatButton from "material-ui/FlatButton";
 import { blue500, indigo50 } from "material-ui/styles/colors";
-import Paper from "material-ui/Paper";
 import IconMenu from "material-ui/IconMenu";
 import MenuItem from "material-ui/MenuItem";
 import IconButton from "material-ui/IconButton";
