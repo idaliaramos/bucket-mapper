@@ -11,6 +11,6 @@ export default function deleteCard(id) {
     },
     body: JSON.stringify()
   }).then(response => {
- response.JSON()
+    response.JSON();
   });
 }

@@ -90,9 +90,7 @@ export default class DestinationCard extends React.Component {
               verticalAlign: "middle"
             }}
           >
-            <div>
-              {destinationCard.name}
-            </div>
+            <div>{destinationCard.name}</div>
           </div>
         </Link>
         <div />
