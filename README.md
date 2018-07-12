@@ -4,6 +4,8 @@ This is the front end to the full stack application BucketMapper, which allows u
 ## You can checkout out the video demo!
 https://youtu.be/WHEZ7_zwioc
 
+or make an account @ https://react-bucketmapper.herokuapp.com/
+
 
 ## Front end made with
 
