@@ -10,7 +10,7 @@ export default function getAdventureCards(destinationId) {
     }
   })
     .then(response => {
-      console.log(response.status, "this is the resp on get adventureCards");
+
       if (response.status !== 200 && response.status !== 201) {
         // return undefined;
         console.log("not a 200");
