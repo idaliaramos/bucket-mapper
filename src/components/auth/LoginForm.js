@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
+import React, { Component } from "react";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import AppBar from "material-ui/AppBar";
+import RaisedButton from "material-ui/RaisedButton";
+import TextField from "material-ui/TextField";
 
 class LoginForm extends Component {
   static defaultProps = {
@@ -12,8 +12,8 @@ class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      email: "",
+      password: ""
     };
   }
   render() {
@@ -23,7 +23,8 @@ class LoginForm extends Component {
         onSubmit={this._handleClickOnSubmit}
         method="post"
         name="login"
-        id="login">
+        id="login"
+      >
         <div>
           <MuiThemeProvider>
             <div>
@@ -35,7 +36,8 @@ class LoginForm extends Component {
                 hintText="Enter your Email"
                 floatingLabelText="Email" //
                 onChange={(event, newValue) =>
-                  this.setState({ email: newValue })}
+                  this.setState({ email: newValue })
+                }
               />
               <br />
               <TextField
@@ -45,7 +47,8 @@ class LoginForm extends Component {
                 hintText="Enter your Password"
                 floatingLabelText="Password"
                 onChange={(event, newValue) =>
-                  this.setState({ password: newValue })}
+                  this.setState({ password: newValue })
+                }
               />
               <br />
               <RaisedButton
@@ -61,7 +64,7 @@ class LoginForm extends Component {
     );
   }
 
-//on submit of this function it will get and save the user info to login
+  //on submit of this function it will get and save the user info to login
   _handleClickOnSubmit = event => {
     event.preventDefault();
     var email = document.login.email.value.trim();

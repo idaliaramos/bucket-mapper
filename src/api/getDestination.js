@@ -1,17 +1,17 @@
-import env from '../env';
+import env from "../env";
 //gets all teh destination cards for the user
 export default function getDestination(destinationId) {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   return fetch(`${env.API_BASE_URL}/destinations/${destinationId}`, {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`
     }
   }).then(response => {
     if (response.status !== 200 && response.status !== 201) {
       throw new Error();
     }
-    console.log(response, 'this is the repsonse ');
+    console.log(response, "this is the repsonse ");
     return response.json();
   });
   //TODO:
