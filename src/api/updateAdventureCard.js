@@ -1,12 +1,11 @@
-// import recordToAdventreCard from './utils/recordToAdventureCard';
-import env from '../env';
+import env from "../env";
+//makes an update to the adventure card
 export default function updateAdventureCard(id, changes) {
-  console.log(id, changes, 'id, changes in the adventure card');
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   return fetch(`${env.API_BASE_URL}/adventures/${id}`, {
-    method: 'PATCH',
+    method: "PATCH",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`
     },
     body: JSON.stringify(changes)

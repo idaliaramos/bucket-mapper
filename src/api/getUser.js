@@ -1,6 +1,6 @@
-// import { isEmpty } from '../utils/LangUtils';
 import env from '../env';
 const isEmpty = require('lodash.isempty');
+//gets the specified user
 export default async function getUser(id, { baseUrl, token }) {
   try {
     const headers = isEmpty(token.token)

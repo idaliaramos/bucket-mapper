@@ -1,4 +1,5 @@
 import env from "../env";
+//creates an adventure card for the user with the specified token
 export default function createAdventureCard(tripData, id) {
   const token = localStorage.getItem("token");
   return fetch(`${env.API_BASE_URL}/destinations/${id}/adventures`, {
@@ -8,12 +9,9 @@ export default function createAdventureCard(tripData, id) {
       Authorization: `Bearer ${token}`
     },
     body: JSON.stringify({
-      fields: {
-        location: tripData.location,
-        url: tripData.url,
-        description: tripData.description
-      }
-
+      location: tripData.location,
+      url: tripData.url,
+      description: tripData.description
       // category: tripData.category
     })
   }).then(response => {

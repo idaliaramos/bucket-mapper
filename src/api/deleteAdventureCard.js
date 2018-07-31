@@ -1,5 +1,6 @@
 import env from '../env';
 import decode from 'jwt-decode';
+//deletes the adventure card for the specified user
 export default function deleteAdventureCard(id) {
   const token = localStorage.getItem('token');
   const { sub: userId } = decode(token);

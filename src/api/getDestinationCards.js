@@ -1,6 +1,7 @@
-// import recordToDestinationCard from './utils/recordToDestinationCard';
+
 import env from '../env';
 import decode from 'jwt-decode';
+// get all of the destination cards for the specified user
 export default function getDestinationCards() {
   const token = localStorage.getItem('token');
   const { sub: userId } = decode(token);

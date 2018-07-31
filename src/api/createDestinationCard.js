@@ -1,5 +1,6 @@
 import env from "../env";
 import decode from "jwt-decode";
+//creates a destination card for the user
 export default function createDestinationCard(destination) {
   const token = localStorage.getItem("token");
   const { sub: userId } = decode(token);

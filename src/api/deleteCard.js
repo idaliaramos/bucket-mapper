@@ -1,8 +1,8 @@
 import env from "../env";
 import decode from "jwt-decode";
+//deletes the destination card for the user
 export default function deleteCard(id) {
   const token = localStorage.getItem("token");
-  // const { sub: userId } = decode(token);
   return fetch(`${env.API_BASE_URL}/destinations/${id}`, {
     method: "DELETE",
     headers: {

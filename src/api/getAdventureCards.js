@@ -1,5 +1,6 @@
-// import recordToAdventureCard from './utils/recordToAdventureCard';
+
 import env from "../env";
+//gets all of the adventure cards for the user
 export default function getAdventureCards(destinationId) {
   const token = localStorage.getItem("token");
 
@@ -12,11 +13,7 @@ export default function getAdventureCards(destinationId) {
     .then(response => {
 
       if (response.status !== 200 && response.status !== 201) {
-        // return undefined;
         console.log("not a 200");
-        // throw new Error()
-        // return;
-        //check
       } else {
         return response.json();
       }

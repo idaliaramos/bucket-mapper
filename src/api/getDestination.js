@@ -1,6 +1,5 @@
 import env from '../env';
-//add in error page
-// import ErrorPage from '../components/ErrorPage';
+//gets all teh destination cards for the user
 export default function getDestination(destinationId) {
   const token = localStorage.getItem('token');
   return fetch(`${env.API_BASE_URL}/destinations/${destinationId}`, {
