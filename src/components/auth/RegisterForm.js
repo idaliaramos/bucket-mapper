@@ -56,7 +56,6 @@ class Register extends Component {
                   required
                   name="password"
                   type="password"
-                  // errorMessage="Password must be at least 8 characters long"
                   hintText="Enter your Password"
                   floatingLabelText="Password"
                   onChange={(event, newValue) =>

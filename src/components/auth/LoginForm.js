@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+
 class LoginForm extends Component {
   static defaultProps = {
     onLogin: () => {}
@@ -60,7 +61,7 @@ class LoginForm extends Component {
     );
   }
 
-
+//on submit of this function it will get and save the user info to login
   _handleClickOnSubmit = event => {
     event.preventDefault();
     var email = document.login.email.value.trim();
