@@ -20,6 +20,8 @@ const style = {
   textAlign: "center",
   display: "block"
 };
+//adventure card: holds inputs for- title, url and description
+//able to add, delete and edit cards
 export default class AdventureCard extends React.Component {
   static defaultProps = {
     onEditAdventureCard: () => {},
@@ -38,7 +40,7 @@ export default class AdventureCard extends React.Component {
   render() {
     return (
       <div>
-        {/* conditional rendering for the cards */}
+        {/* conditional rendering for the cards depending on if edit mode is true or false*/}
         <Card style={style}>
           {this.state.editMode === true
             ? this._renderEditMode()
